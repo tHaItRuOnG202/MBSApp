@@ -1,0 +1,4 @@
+E:\LTGD\MBSApp\MBSApp.DAO\obj\Debug\MBSApp.DAO.csproj.AssemblyReference.cache
+E:\LTGD\MBSApp\MBSApp.DAO\obj\Debug\MBSApp.DAO.Properties.Resources.resources
+E:\LTGD\MBSApp\MBSApp.DAO\obj\Debug\MBSApp.DAO.csproj.GenerateResource.cache
+E:\LTGD\MBSApp\MBSApp.DAO\obj\Debug\MBSApp.DAO.csproj.CoreCompileInputs.cache

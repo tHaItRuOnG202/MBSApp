@@ -1,0 +1,12 @@
+E:\LTGD\MBSApp\MBS.BUS\bin\Debug\MBS.BUS.dll
+E:\LTGD\MBSApp\MBS.BUS\bin\Debug\MBS.BUS.pdb
+E:\LTGD\MBSApp\MBS.BUS\bin\Debug\MBS.DAO.dll
+E:\LTGD\MBSApp\MBS.BUS\bin\Debug\MBS.DTO.dll
+E:\LTGD\MBSApp\MBS.BUS\bin\Debug\MBS.DAO.pdb
+E:\LTGD\MBSApp\MBS.BUS\bin\Debug\MBS.DTO.pdb
+E:\LTGD\MBSApp\MBS.BUS\obj\Debug\MBS.BUS.csproj.AssemblyReference.cache
+E:\LTGD\MBSApp\MBS.BUS\obj\Debug\MBS.BUS.csproj.CoreCompileInputs.cache
+E:\LTGD\MBSApp\MBS.BUS\obj\Debug\MBS.BUS.csproj.CopyComplete
+E:\LTGD\MBSApp\MBS.BUS\obj\Debug\MBS.BUS.dll
+E:\LTGD\MBSApp\MBS.BUS\obj\Debug\MBS.BUS.pdb
+E:\LTGD\MBSApp\MBS.BUS\bin\Debug\MBS.DAO.dll.config

@@ -1,0 +1,4 @@
+E:\LTGD\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.csproj.AssemblyReference.cache
+E:\LTGD\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.Properties.Resources.resources
+E:\LTGD\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.csproj.GenerateResource.cache
+E:\LTGD\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.csproj.CoreCompileInputs.cache

@@ -1,0 +1,10 @@
+E:\LTGD\MBSApp\MBS.DAO\bin\Debug\MBS.DAO.dll
+E:\LTGD\MBSApp\MBS.DAO\bin\Debug\MBS.DAO.pdb
+E:\LTGD\MBSApp\MBS.DAO\bin\Debug\MBS.DTO.dll
+E:\LTGD\MBSApp\MBS.DAO\bin\Debug\MBS.DTO.pdb
+E:\LTGD\MBSApp\MBS.DAO\obj\Debug\MBS.DAO.csproj.AssemblyReference.cache
+E:\LTGD\MBSApp\MBS.DAO\obj\Debug\MBS.DAO.csproj.CoreCompileInputs.cache
+E:\LTGD\MBSApp\MBS.DAO\obj\Debug\MBS.DAO.csproj.CopyComplete
+E:\LTGD\MBSApp\MBS.DAO\obj\Debug\MBS.DAO.dll
+E:\LTGD\MBSApp\MBS.DAO\obj\Debug\MBS.DAO.pdb
+E:\LTGD\MBSApp\MBS.DAO\bin\Debug\MBS.DAO.dll.config

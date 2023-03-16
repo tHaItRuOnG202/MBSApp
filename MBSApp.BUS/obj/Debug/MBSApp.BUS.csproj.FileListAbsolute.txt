@@ -1,0 +1,3 @@
+E:\LTGD\MBSApp\MBSApp.BUS\obj\Debug\MBSApp.BUS.Properties.Resources.resources
+E:\LTGD\MBSApp\MBSApp.BUS\obj\Debug\MBSApp.BUS.csproj.GenerateResource.cache
+E:\LTGD\MBSApp\MBSApp.BUS\obj\Debug\MBSApp.BUS.csproj.CoreCompileInputs.cache

@@ -1,0 +1,6 @@
+E:\LTGD\MBSApp\MBS.DTO\bin\Debug\MBS.DTO.dll
+E:\LTGD\MBSApp\MBS.DTO\bin\Debug\MBS.DTO.pdb
+E:\LTGD\MBSApp\MBS.DTO\obj\Debug\MBS.DTO.csproj.CoreCompileInputs.cache
+E:\LTGD\MBSApp\MBS.DTO\obj\Debug\MBS.DTO.dll
+E:\LTGD\MBSApp\MBS.DTO\obj\Debug\MBS.DTO.pdb
+E:\LTGD\MBSApp\MBS.DTO\obj\Debug\MBS.DTO.csproj.AssemblyReference.cache
