@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MBS.DAO;
+using MBS.BUS;
 
 namespace MBSApp
 {
     public partial class frmDMLoaiSanPham : Form
     {
-        HienThiDAO show = new HienThiDAO();
+        ThemBUS ib = new ThemBUS();
         public frmDMLoaiSanPham()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace MBSApp
 
         private void frmDMLoaiSanPham_Load(object sender, EventArgs e)
         {
-            dgvDMSanPham.DataSource = show.ShowLoaiSP();
+            dgvDMSanPham.DataSource = ib.ShowCategories();
         }
     }
 }

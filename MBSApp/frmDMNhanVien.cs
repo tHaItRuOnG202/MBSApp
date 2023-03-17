@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MBS.DAO;
 using MBS.DTO;
 using MBS.BUS;
 
@@ -15,7 +14,7 @@ namespace MBSApp
 {
     public partial class frmDMNhanVien : Form
     {
-        HienThiDAO show = new HienThiDAO();
+        ThemBUS ib = new ThemBUS();
         public frmDMNhanVien()
         {
             InitializeComponent();
@@ -23,7 +22,7 @@ namespace MBSApp
 
         private void frmDMNhanVien_Load(object sender, EventArgs e)
         {
-            dgvDMNhanVien.DataSource = show.ShowNhanVien();
+            dgvDMNhanVien.DataSource = ib.ShowEmpoyees();
         }
     }
 }

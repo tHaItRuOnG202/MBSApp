@@ -13,19 +13,51 @@ namespace MBS.DAO
     public class HienThiDAO
     {
         QLBanHangDataContext db = new QLBanHangDataContext();
-        public List<KhachHang> ShowKhachHang()
+        ConnectionDAO cd = new ConnectionDAO();
+        KhachHang cust = new KhachHang();
+        //public List<KhachHang> ShowKhachHang()
+        //{
+        //    return db.KhachHangs.ToList();
+        //}
+
+        //public List<NhanVien> ShowNhanVien()
+        //{
+        //    return db.NhanViens.ToList();
+        //}
+
+        //public List<LoaiSP> ShowLoaiSP()
+        //{
+        //    return db.LoaiSPs.ToList();
+        //}
+
+        public DataTable ShowKhachHang()
         {
-            return db.KhachHangs.ToList();
+            SqlDataAdapter da;
+            DataTable dt = new DataTable();
+            string query = "Select * From KhachHang";
+            da = new SqlDataAdapter(query, cd.Connect());
+            da.Fill(dt);
+            return dt;
         }
 
-        public List<NhanVien> ShowNhanVien()
+        public DataTable ShowLoaiSP()
         {
-            return db.NhanViens.ToList();
+            SqlDataAdapter da;
+            DataTable dt = new DataTable();
+            string query = "Select * From LoaiSP";
+            da = new SqlDataAdapter(query, cd.Connect());
+            da.Fill(dt);
+            return dt;
         }
 
-        public List<LoaiSP> ShowLoaiSP()
+        public DataTable ShowNhanVien()
         {
-            return db.LoaiSPs.ToList();
+            SqlDataAdapter da;
+            DataTable dt = new DataTable();
+            string query = "Select * From NhanVien";
+            da = new SqlDataAdapter(query, cd.Connect());
+            da.Fill(dt);
+            return dt;
         }
 
         public List<ProductView> ShowSanPham()
@@ -57,7 +89,6 @@ namespace MBS.DAO
 
         public bool ThemKhachHang(Customer c)
         {
-            KhachHang cust = new KhachHang();
             cust.MaKH = c.MaKH;
             cust.TenKH = c.TenKH;
             cust.NgaySinh = c.NgaySinh;
@@ -69,6 +100,16 @@ namespace MBS.DAO
             db.SubmitChanges();
 
             return true;
+        }
+
+        public DataTable SearchKhachHang(string k)
+        {
+            SqlDataAdapter da;
+            DataTable dt = new DataTable();
+            string query = "Select * From KhachHang Where TenKH like N'"+k+"%' ";
+            da = new SqlDataAdapter(query, cd.Connect());
+            da.Fill(dt);
+            return dt;
         }
     }
 }

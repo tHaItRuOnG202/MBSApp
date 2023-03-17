@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MBS.DAO;
 using MBS.BUS;
 using MBS.DTO;
 
@@ -15,8 +14,7 @@ namespace MBSApp
 {
     public partial class frmSanPham : Form
     {
-        HienThiDAO show = new HienThiDAO();
-        QLBanHangDataContext db = new QLBanHangDataContext();
+        ThemBUS ib = new ThemBUS();
         public frmSanPham()
         {
             InitializeComponent();
@@ -43,7 +41,7 @@ namespace MBSApp
         //Da viet duoc tren DAO
         private void frmSanPham_Load(object sender, EventArgs e)
         {
-            dgvDMSanPham.DataSource = show.ShowSanPham();
+            dgvDMSanPham.DataSource = ib.ShowProducts();
             
         }
     }
