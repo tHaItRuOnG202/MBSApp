@@ -14,7 +14,7 @@ namespace MBS.DAO
     {
         QLBanHangDataContext db = new QLBanHangDataContext();
         ConnectionDAO cd = new ConnectionDAO();
-        KhachHang cust = new KhachHang();
+        //KhachHang cust = new KhachHang();
         //public List<KhachHang> ShowKhachHang()
         //{
         //    return db.KhachHangs.ToList();
@@ -89,6 +89,7 @@ namespace MBS.DAO
 
         public bool ThemKhachHang(Customer c)
         {
+            KhachHang cust = new KhachHang();
             cust.MaKH = c.MaKH;
             cust.TenKH = c.TenKH;
             cust.NgaySinh = c.NgaySinh;
@@ -110,6 +111,23 @@ namespace MBS.DAO
             da = new SqlDataAdapter(query, cd.Connect());
             da.Fill(dt);
             return dt;
+        }
+
+        public bool XoaKhachHang(Customer c)
+        {
+            KhachHang cust = new KhachHang();
+            cust.MaKH = c.MaKH;
+            cust.TenKH = c.TenKH;
+            cust.NgaySinh = c.NgaySinh;
+            cust.DiaChi = c.DiaChi;
+            cust.DienThoai = c.DienThoai;
+            cust.Email = c.Email;
+
+            db.KhachHangs.Attach(cust);
+            db.KhachHangs.DeleteOnSubmit(cust);
+            db.SubmitChanges();
+
+            return true;
         }
     }
 }

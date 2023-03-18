@@ -42,4 +42,10 @@ namespace MBS.BUS
         {
             return load.SearchKhachHang(kw);
         }
+
+        public bool XoaThanhVien(Customer c)
+        {
+            return load.XoaKhachHang(c);
+        }
+    }
 }
