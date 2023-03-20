@@ -97,7 +97,9 @@ namespace MBS.DAO
             cust.DienThoai = c.DienThoai;
             cust.Email = c.Email;
 
+            db = new QLBanHangDataContext();
             db.KhachHangs.InsertOnSubmit(cust);
+            
             db.SubmitChanges();
 
             return true;

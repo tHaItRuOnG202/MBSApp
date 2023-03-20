@@ -57,12 +57,18 @@ namespace MBSApp
             //foreach (DataGridViewRow row in dgvDMKhachHang.SelectedRows)
             //    if (!row.IsNewRow) dgvDMKhachHang.Rows.Remove(row);
 
-            int r = dgvDMKhachHang.CurrentCell.RowIndex;
-
-            Customer c = new Customer(dgvDMKhachHang.Rows[r].Cells[0].Value.ToString(),
-                dgvDMKhachHang.Rows[r].Cells[1].Value.ToString(), DateTime.Parse(dgvDMKhachHang.Rows[r].Cells[2].Value.ToString()), dgvDMKhachHang.Rows[r].Cells[3].Value.ToString(),
-                dgvDMKhachHang.Rows[r].Cells[4].Value.ToString(), dgvDMKhachHang.Rows[r].Cells[5].Value.ToString());
-            ib.XoaThanhVien(c);
+            int r = dgvDMKhachHang.CurrentRow.Index;
+            
+            //for (int i = dgvDMKhachHang.CurrentRow.Index; i <= dgvDMKhachHang.SelectedRows.Count; i++)
+            //{
+                Customer c = new Customer(dgvDMKhachHang.Rows[r].Cells[0].Value.ToString(),
+                dgvDMKhachHang.Rows[r].Cells[1].Value.ToString(), 
+                DateTime.Parse(dgvDMKhachHang.Rows[r].Cells[2].Value.ToString()), 
+                dgvDMKhachHang.Rows[r].Cells[3].Value.ToString(),
+                dgvDMKhachHang.Rows[r].Cells[4].Value.ToString(), 
+                dgvDMKhachHang.Rows[r].Cells[5].Value.ToString());
+                ib.XoaThanhVien(c);
+            //}
             //if (ib.XoaThanhVien(c))
             //{
                 dgvDMKhachHang.DataSource = ib.ShowCustomers();
