@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MBS.BUS;
-using MBS.DTO;
+using MBSApp.BUS;
+using MBSApp.DTO;
 
 namespace MBSApp
 {
     public partial class frmSanPham : Form
     {
-        ThemBUS ib = new ThemBUS();
+        Controller_BUS ctrl_D = new Controller_BUS();
         public frmSanPham()
         {
             InitializeComponent();
@@ -41,8 +41,66 @@ namespace MBSApp
         //Da viet duoc tren DAO
         private void frmSanPham_Load(object sender, EventArgs e)
         {
-            dgvDMSanPham.DataSource = ib.ShowProducts();
-            
+            dgvDMSanPham.DataSource = ctrl_D.ShowProducts();
+            cboMaLoaiSP.DataSource = ctrl_D.ShowCategories();
+            cboMaLoaiSP.DisplayMember = "TenLoaiSP";
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    ProductView empl = new ProductView(txtMaSP.Text, txtTenSP.Text, cboMaLoaiSP.Text,
+            //            DateTime.Parse(dtpNgaySinh.Text), txtDiaChi.Text, txtDienThoai.Text);
+
+            //    if (txtMaNV.Text == String.Empty)
+            //    {
+            //        Exception ex = new Exception();
+            //        throw ex;
+            //    }
+            //    ctrl_D.AddEmployees(empl);
+            //    frmDMNhanVien_Load(sender, e);
+            //    txtMaNV.Text = String.Empty;
+            //    txtHoNV.Text = String.Empty;
+            //    txtTenNV.Text = String.Empty;
+            //    txtDiaChi.Text = String.Empty;
+            //    txtDienThoai.Text = String.Empty;
+            //}
+            //catch (SqlException)
+            //{
+            //    MessageBox.Show("Không được trùng mã nhân viên!");
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Bạn chưa nhập mã nhân viên");
+            //}
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDMSanPham_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
         }
     }
 }

@@ -42,6 +42,11 @@ namespace MBSApp
             this.txtDonGiaBan = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDMSanPham = new System.Windows.Forms.DataGridView();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoaiSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDong = new System.Windows.Forms.Button();
             this.btnBoQua = new System.Windows.Forms.Button();
             this.btnLuuSP = new System.Windows.Forms.Button();
@@ -50,11 +55,11 @@ namespace MBSApp
             this.btnThemSP = new System.Windows.Forms.Button();
             this.btnTimKiemSP = new System.Windows.Forms.Button();
             this.btnHienThiSP = new System.Windows.Forms.Button();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLoaiSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btXoa = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDMSanPham)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,6 +191,47 @@ namespace MBSApp
             this.dgvDMSanPham.RowTemplate.Height = 28;
             this.dgvDMSanPham.Size = new System.Drawing.Size(1097, 290);
             this.dgvDMSanPham.TabIndex = 65;
+            this.dgvDMSanPham.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDMSanPham_CellMouseClick);
+            // 
+            // MaSP
+            // 
+            this.MaSP.DataPropertyName = "MaSP";
+            this.MaSP.HeaderText = "Mã sản phẩm";
+            this.MaSP.MinimumWidth = 8;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.Width = 150;
+            // 
+            // TenSP
+            // 
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên sản phẩm";
+            this.TenSP.MinimumWidth = 8;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.Width = 190;
+            // 
+            // TenLoaiSP
+            // 
+            this.TenLoaiSP.DataPropertyName = "TenLoaiSP";
+            this.TenLoaiSP.HeaderText = "Loại sản phẩm";
+            this.TenLoaiSP.MinimumWidth = 8;
+            this.TenLoaiSP.Name = "TenLoaiSP";
+            this.TenLoaiSP.Width = 150;
+            // 
+            // DonVi
+            // 
+            this.DonVi.DataPropertyName = "DonVi";
+            this.DonVi.HeaderText = "Đơn vị";
+            this.DonVi.MinimumWidth = 8;
+            this.DonVi.Name = "DonVi";
+            this.DonVi.Width = 130;
+            // 
+            // DonGia
+            // 
+            this.DonGia.DataPropertyName = "DonGia";
+            this.DonGia.HeaderText = "Đơn giá bán";
+            this.DonGia.MinimumWidth = 8;
+            this.DonGia.Name = "DonGia";
+            this.DonGia.Width = 150;
             // 
             // btnDong
             // 
@@ -284,51 +330,77 @@ namespace MBSApp
             this.btnHienThiSP.Text = "Hiển thị DSSP";
             this.btnHienThiSP.UseVisualStyleBackColor = false;
             // 
-            // MaSP
+            // btnThem
             // 
-            this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.HeaderText = "Mã sản phẩm";
-            this.MaSP.MinimumWidth = 8;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.Width = 150;
+            this.btnThem.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnThem.Location = new System.Drawing.Point(460, 77);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(100, 41);
+            this.btnThem.TabIndex = 73;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // TenSP
+            // btXoa
             // 
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.HeaderText = "Tên sản phẩm";
-            this.TenSP.MinimumWidth = 8;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.Width = 190;
+            this.btXoa.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXoa.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btXoa.Location = new System.Drawing.Point(608, 77);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(100, 41);
+            this.btXoa.TabIndex = 73;
+            this.btXoa.Text = "Xóa";
+            this.btXoa.UseVisualStyleBackColor = false;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
-            // TenLoaiSP
+            // btnLuu
             // 
-            this.TenLoaiSP.DataPropertyName = "TenLoaiSP";
-            this.TenLoaiSP.HeaderText = "Loại sản phẩm";
-            this.TenLoaiSP.MinimumWidth = 8;
-            this.TenLoaiSP.Name = "TenLoaiSP";
-            this.TenLoaiSP.Width = 150;
+            this.btnLuu.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLuu.Location = new System.Drawing.Point(756, 77);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(100, 41);
+            this.btnLuu.TabIndex = 73;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // DonVi
+            // txtTimKiem
             // 
-            this.DonVi.DataPropertyName = "DonVi";
-            this.DonVi.HeaderText = "Đơn vị";
-            this.DonVi.MinimumWidth = 8;
-            this.DonVi.Name = "DonVi";
-            this.DonVi.Width = 130;
+            this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKiem.Location = new System.Drawing.Point(460, 167);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(248, 24);
+            this.txtTimKiem.TabIndex = 55;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
-            // DonGia
+            // btnTimKiem
             // 
-            this.DonGia.DataPropertyName = "DonGia";
-            this.DonGia.HeaderText = "Đơn giá bán";
-            this.DonGia.MinimumWidth = 8;
-            this.DonGia.Name = "DonGia";
-            this.DonGia.Width = 150;
+            this.btnTimKiem.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnTimKiem.Location = new System.Drawing.Point(746, 160);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(122, 41);
+            this.btnTimKiem.TabIndex = 73;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 635);
+            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.btnLuu);
+            this.Controls.Add(this.btXoa);
+            this.Controls.Add(this.btnThem);
             this.Controls.Add(this.btnHienThiSP);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnTimKiemSP);
@@ -343,6 +415,7 @@ namespace MBSApp
             this.Controls.Add(this.cboMaLoaiSP);
             this.Controls.Add(this.txtTenSP);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.txtMaSP);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -382,5 +455,10 @@ namespace MBSApp
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonVi;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btXoa;
+        private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.Button btnTimKiem;
     }
 }

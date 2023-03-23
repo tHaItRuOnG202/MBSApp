@@ -40,6 +40,7 @@ namespace MBSApp
             this.mnuLoaiSP = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNV = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSanPham = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuKhachHang = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHoaDon = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHoaDonBan = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTimKiem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,6 @@ namespace MBSApp
             this.mnuBCDoanhThu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTroGiup = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuXemTroGiup = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuKhachHang = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,31 +86,31 @@ namespace MBSApp
             // mnuMoi
             // 
             this.mnuMoi.Name = "mnuMoi";
-            this.mnuMoi.Size = new System.Drawing.Size(224, 26);
+            this.mnuMoi.Size = new System.Drawing.Size(183, 26);
             this.mnuMoi.Text = "Mới";
             // 
             // mnuMo
             // 
             this.mnuMo.Name = "mnuMo";
-            this.mnuMo.Size = new System.Drawing.Size(224, 26);
+            this.mnuMo.Size = new System.Drawing.Size(183, 26);
             this.mnuMo.Text = "Mở";
             // 
             // mnuDong
             // 
             this.mnuDong.Name = "mnuDong";
-            this.mnuDong.Size = new System.Drawing.Size(224, 26);
+            this.mnuDong.Size = new System.Drawing.Size(183, 26);
             this.mnuDong.Text = "Đóng";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(180, 6);
             // 
             // mnuThoat
             // 
             this.mnuThoat.Name = "mnuThoat";
             this.mnuThoat.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mnuThoat.Size = new System.Drawing.Size(224, 26);
+            this.mnuThoat.Size = new System.Drawing.Size(183, 26);
             this.mnuThoat.Text = "Thoát";
             this.mnuThoat.Click += new System.EventHandler(this.mnuThoat_Click);
             // 
@@ -128,23 +128,30 @@ namespace MBSApp
             // mnuLoaiSP
             // 
             this.mnuLoaiSP.Name = "mnuLoaiSP";
-            this.mnuLoaiSP.Size = new System.Drawing.Size(224, 26);
+            this.mnuLoaiSP.Size = new System.Drawing.Size(188, 26);
             this.mnuLoaiSP.Text = "Loại sản phẩm";
             this.mnuLoaiSP.Click += new System.EventHandler(this.mnuLoaiSP_Click);
             // 
             // mnuNV
             // 
             this.mnuNV.Name = "mnuNV";
-            this.mnuNV.Size = new System.Drawing.Size(224, 26);
+            this.mnuNV.Size = new System.Drawing.Size(188, 26);
             this.mnuNV.Text = "Nhân viên";
             this.mnuNV.Click += new System.EventHandler(this.mnuNV_Click);
             // 
             // mnuSanPham
             // 
             this.mnuSanPham.Name = "mnuSanPham";
-            this.mnuSanPham.Size = new System.Drawing.Size(224, 26);
+            this.mnuSanPham.Size = new System.Drawing.Size(188, 26);
             this.mnuSanPham.Text = "Sản phẩm";
             this.mnuSanPham.Click += new System.EventHandler(this.mnuSanPham_Click);
+            // 
+            // mnuKhachHang
+            // 
+            this.mnuKhachHang.Name = "mnuKhachHang";
+            this.mnuKhachHang.Size = new System.Drawing.Size(188, 26);
+            this.mnuKhachHang.Text = "Khách hàng";
+            this.mnuKhachHang.Click += new System.EventHandler(this.mnuKhachHang_Click);
             // 
             // mnuHoaDon
             // 
@@ -157,7 +164,7 @@ namespace MBSApp
             // mnuHoaDonBan
             // 
             this.mnuHoaDonBan.Name = "mnuHoaDonBan";
-            this.mnuHoaDonBan.Size = new System.Drawing.Size(224, 26);
+            this.mnuHoaDonBan.Size = new System.Drawing.Size(179, 26);
             this.mnuHoaDonBan.Text = "Hóa đơn bán";
             this.mnuHoaDonBan.Click += new System.EventHandler(this.mnuHoaDonBan_Click);
             // 
@@ -176,6 +183,7 @@ namespace MBSApp
             this.mnuFindHoaDon.Name = "mnuFindHoaDon";
             this.mnuFindHoaDon.Size = new System.Drawing.Size(224, 26);
             this.mnuFindHoaDon.Text = "Hóa đơn";
+            this.mnuFindHoaDon.Click += new System.EventHandler(this.mnuFindHoaDon_Click);
             // 
             // mnuFindSanPham
             // 
@@ -200,7 +208,7 @@ namespace MBSApp
             // mnuBCDoanhThu
             // 
             this.mnuBCDoanhThu.Name = "mnuBCDoanhThu";
-            this.mnuBCDoanhThu.Size = new System.Drawing.Size(224, 26);
+            this.mnuBCDoanhThu.Size = new System.Drawing.Size(161, 26);
             this.mnuBCDoanhThu.Text = "Doanh thu";
             // 
             // mnuTroGiup
@@ -214,15 +222,8 @@ namespace MBSApp
             // mnuXemTroGiup
             // 
             this.mnuXemTroGiup.Name = "mnuXemTroGiup";
-            this.mnuXemTroGiup.Size = new System.Drawing.Size(224, 26);
+            this.mnuXemTroGiup.Size = new System.Drawing.Size(179, 26);
             this.mnuXemTroGiup.Text = "Xem trợ giúp";
-            // 
-            // mnuKhachHang
-            // 
-            this.mnuKhachHang.Name = "mnuKhachHang";
-            this.mnuKhachHang.Size = new System.Drawing.Size(224, 26);
-            this.mnuKhachHang.Text = "Khách hàng";
-            this.mnuKhachHang.Click += new System.EventHandler(this.mnuKhachHang_Click);
             // 
             // TrangChu
             // 

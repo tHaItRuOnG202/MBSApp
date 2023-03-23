@@ -37,8 +37,7 @@ namespace MBSApp
             this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDong = new System.Windows.Forms.Button();
-            this.btnBoQua = new System.Windows.Forms.Button();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -55,6 +54,7 @@ namespace MBSApp
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTenNV = new System.Windows.Forms.TextBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDMNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,6 +87,7 @@ namespace MBSApp
             this.dgvDMNhanVien.RowTemplate.Height = 28;
             this.dgvDMNhanVien.Size = new System.Drawing.Size(915, 214);
             this.dgvDMNhanVien.TabIndex = 4;
+            this.dgvDMNhanVien.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDMNhanVien_CellMouseClick);
             // 
             // MaNV
             // 
@@ -136,30 +137,18 @@ namespace MBSApp
             this.DienThoai.Name = "DienThoai";
             this.DienThoai.Width = 115;
             // 
-            // btnDong
+            // btnTimKiem
             // 
-            this.btnDong.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDong.ForeColor = System.Drawing.Color.Red;
-            this.btnDong.Location = new System.Drawing.Point(855, 259);
-            this.btnDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(102, 46);
-            this.btnDong.TabIndex = 9;
-            this.btnDong.Text = "Đóng";
-            this.btnDong.UseVisualStyleBackColor = false;
-            // 
-            // btnBoQua
-            // 
-            this.btnBoQua.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnBoQua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBoQua.Location = new System.Drawing.Point(734, 259);
-            this.btnBoQua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnBoQua.Name = "btnBoQua";
-            this.btnBoQua.Size = new System.Drawing.Size(102, 46);
-            this.btnBoQua.TabIndex = 10;
-            this.btnBoQua.Text = "Bỏ qua";
-            this.btnBoQua.UseVisualStyleBackColor = false;
+            this.btnTimKiem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Location = new System.Drawing.Point(832, 259);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(123, 46);
+            this.btnTimKiem.TabIndex = 10;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnLuu
             // 
@@ -172,6 +161,7 @@ namespace MBSApp
             this.btnLuu.TabIndex = 11;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -196,6 +186,7 @@ namespace MBSApp
             this.btnXoa.TabIndex = 13;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -208,6 +199,7 @@ namespace MBSApp
             this.btnThem.TabIndex = 14;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // txtDiaChi
             // 
@@ -293,7 +285,7 @@ namespace MBSApp
             // 
             // dtpNgaySinh
             // 
-            this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgaySinh.CustomFormat = "MM/dd/yyyy";
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgaySinh.Location = new System.Drawing.Point(713, 176);
             this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -319,14 +311,23 @@ namespace MBSApp
             this.txtTenNV.Size = new System.Drawing.Size(231, 22);
             this.txtTenNV.TabIndex = 8;
             // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(584, 272);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(232, 22);
+            this.txtTimKiem.TabIndex = 17;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            // 
             // frmDMNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 538);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.dtpNgaySinh);
-            this.Controls.Add(this.btnDong);
-            this.Controls.Add(this.btnBoQua);
+            this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
@@ -359,8 +360,7 @@ namespace MBSApp
 
         private System.Windows.Forms.Label lbDMNhanVien;
         private System.Windows.Forms.DataGridView dgvDMNhanVien;
-        private System.Windows.Forms.Button btnDong;
-        private System.Windows.Forms.Button btnBoQua;
+        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
@@ -383,5 +383,6 @@ namespace MBSApp
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn DienThoai;
+        private System.Windows.Forms.TextBox txtTimKiem;
     }
 }

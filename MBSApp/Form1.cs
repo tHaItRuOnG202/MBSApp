@@ -63,6 +63,12 @@ namespace MBSApp
             frmHoaDonBanHang.ShowDialog();
         }
 
+        private void mnuFindHoaDon_Click(object sender, EventArgs e)
+        {
+            frmTimHoaDon frmTimHoaDon = new frmTimHoaDon();
+            frmTimHoaDon.ShowDialog();
+        }
+
         private void mnuThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();

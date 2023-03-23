@@ -135,17 +135,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MBS.BUS\MBS.BUS.csproj">
+    <ProjectReference Include="..\MBS.BUS\MBSApp.BUS.csproj">
       <Project>{1e6feeb5-d1d8-46d8-afde-c8a232df9d85}</Project>
-      <Name>MBS.BUS</Name>
+      <Name>MBSApp.BUS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MBS.DAO\MBS.DAO.csproj">
+    <ProjectReference Include="..\MBS.DAO\MBSApp.DAO.csproj">
       <Project>{22776777-E7BA-4038-9F42-396B7F6BE1CD}</Project>
-      <Name>MBS.DAO</Name>
+      <Name>MBSApp.DAO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MBS.DTO\MBS.DTO.csproj">
+    <ProjectReference Include="..\MBS.DTO\MBSApp.DTO.csproj">
       <Project>{fa51d65c-14a9-4352-ae41-97a096c2046d}</Project>
-      <Name>MBS.DTO</Name>
+      <Name>MBSApp.DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
