@@ -9,7 +9,6 @@ C:\Users\Sy_Tuan\source\repos\MBSApp\MBSApp\obj\Debug\MBSApp.csproj.CoreCompileI
 C:\Users\Sy_Tuan\source\repos\MBSApp\MBSApp\obj\Debug\MBSApp.exe
 C:\Users\Sy_Tuan\source\repos\MBSApp\MBSApp\obj\Debug\MBSApp.pdb
 C:\Users\Sy_Tuan\source\repos\MBSApp\MBSApp\obj\Debug\MBSApp.frmDMLoaiSanPham.resources
-E:\LTGD\MBSApp\MBSApp\obj\Debug\MBSApp.TrangChu.resources
 E:\LTGD\MBSApp\MBSApp\obj\Debug\MBSApp.frmDMKhachHang.resources
 E:\LTGD\MBSApp\MBSApp\obj\Debug\MBSApp.frmDMLoaiSanPham.resources
 E:\LTGD\MBSApp\MBSApp\obj\Debug\MBSApp.frmDMNhanVien.resources
@@ -33,3 +32,7 @@ E:\LTGD\MBSApp\MBSApp\obj\Debug\MBSApp.pdb
 E:\LTGD\MBSApp\MBSApp\bin\Debug\MBS.DAO.dll
 E:\LTGD\MBSApp\MBSApp\bin\Debug\MBS.DAO.pdb
 E:\LTGD\MBSApp\MBSApp\bin\Debug\MBS.DAO.dll.config
+E:\LTGD\MBSApp\MBSApp\obj\Debug\MBSApp.frmTrangChu.resources
+E:\LTGD\MBSApp\MBSApp\obj\Debug\MBSApp.frmTaiKhoan.resources
+E:\LTGD\MBSApp\MBSApp\obj\Debug\MBSApp.TrangChuMuaHang.resources
+E:\LTGD\MBSApp\MBSApp\obj\Debug\MBSApp.frmGioHang.resources

@@ -47,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmTrangChu.Designer.cs">
+      <DependentUpon>frmTrangChu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDMKhachHang.cs">
       <SubType>Form</SubType>
@@ -71,6 +71,12 @@
     <Compile Include="frmDMNhanVien.Designer.cs">
       <DependentUpon>frmDMNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGioHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGioHang.Designer.cs">
+      <DependentUpon>frmGioHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHoaDonBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,12 @@
     <Compile Include="frmSanPham.Designer.cs">
       <DependentUpon>frmSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaiKhoan.Designer.cs">
+      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTimHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,8 +103,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TrangChuMuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrangChuMuaHang.Designer.cs">
+      <DependentUpon>TrangChuMuaHang.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmTrangChu.resx">
+      <DependentUpon>frmTrangChu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMKhachHang.resx">
       <DependentUpon>frmDMKhachHang.cs</DependentUpon>
@@ -103,11 +121,17 @@
     <EmbeddedResource Include="frmDMNhanVien.resx">
       <DependentUpon>frmDMNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGioHang.resx">
+      <DependentUpon>frmGioHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHoaDonBanHang.resx">
       <DependentUpon>frmHoaDonBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSanPham.resx">
       <DependentUpon>frmSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaiKhoan.resx">
+      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTimHoaDon.resx">
       <DependentUpon>frmTimHoaDon.cs</DependentUpon>
@@ -120,7 +144,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TrangChuMuaHang.resx">
+      <DependentUpon>TrangChuMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -147,6 +175,30 @@
       <Project>{fa51d65c-14a9-4352-ae41-97a096c2046d}</Project>
       <Name>MBSApp.DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14promax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\samsung-galaxy-a32-4g-thumb-trang-600x600-200x200-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chuot-khong-day-silent-rapoo-m300-xanh-500.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tai-nghe-bluetooth-true-wireless-jbl-t120-thumb.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12pro-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lg-gram-2022-i7-17z90qgah78a5-fix-thumb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apple-watch-s7-41mm-do-thumbnew-600x600.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ipad-pro-2021-129-inch-gray.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

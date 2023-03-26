@@ -40,6 +40,7 @@ namespace MBSApp
                     throw ex;
                 }
                 ctrl_D.AddCustomers(cust);
+                frmDMKhachHang_Load(sender, e);
                 txtMaKhachHang.Text = String.Empty;
                 txtTenkhachhang.Text = String.Empty;
                 txtDienThoai.Text = String.Empty;
