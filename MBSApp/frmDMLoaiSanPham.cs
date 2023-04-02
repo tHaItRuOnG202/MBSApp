@@ -75,18 +75,18 @@ namespace MBSApp
             dgvDMSanPham.DataSource = dt;
         }
 
-        private void dgvDMSanPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int i = dgvDMSanPham.CurrentRow.Index;
-            txtMaLoaiSP.Text = dgvDMSanPham.Rows[i].Cells[0].Value.ToString();
-            txtTenLoaiSP.Text = dgvDMSanPham.Rows[i].Cells[1].Value.ToString();
-        }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
             Categories cate = new Categories(txtMaLoaiSP.Text, txtTenLoaiSP.Text);
             ctrl_D.EditCategories(cate);
             dgvDMSanPham.DataSource = ctrl_D.ShowCategories();
+        }
+
+        private void dgvDMSanPham_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int i = dgvDMSanPham.CurrentRow.Index;
+            txtMaLoaiSP.Text = dgvDMSanPham.Rows[i].Cells[0].Value.ToString();
+            txtTenLoaiSP.Text = dgvDMSanPham.Rows[i].Cells[1].Value.ToString();
         }
     }
 }

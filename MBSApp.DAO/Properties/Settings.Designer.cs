@@ -26,10 +26,20 @@ namespace MBSApp.DAO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CLIMAX;Initial Catalog=mbwdb;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Climax;Initial Catalog=mbwdb;Integrated Security=True")]
         public string mbwdbConnectionString {
             get {
                 return ((string)(this["mbwdbConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CLIMAX;Initial Catalog=mbwdb;Integrated Security=True")]
+        public string mbwdbConnectionString1 {
+            get {
+                return ((string)(this["mbwdbConnectionString1"]));
             }
         }
     }

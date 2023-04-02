@@ -118,31 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tai-nghe-bluetooth-true-wireless-jbl-t120-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tai-nghe-bluetooth-true-wireless-jbl-t120-thumb.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="12pro-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\12pro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="14promax" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\14promax.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\14promax.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lg-gram-2022-i7-17z90qgah78a5-fix-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lg-gram-2022-i7-17z90qgah78a5-fix-thumb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\lggram.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="samsung-galaxy-a32-4g-thumb-trang-600x600-200x200-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\samsung-galaxy-a32-4g-thumb-trang-600x600-200x200-1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tai-nghe-bluetooth-true-wireless-jbl-t120-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jblt120.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chuot-khong-day-silent-rapoo-m300-xanh-500" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chuot-khong-day-silent-rapoo-m300-xanh-500.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\mouse.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="apple-watch-s7-41mm-do-thumbnew-600x600" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\apple-watch-s7-41mm-do-thumbnew-600x600.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\applewatch.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="14promax1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\14promax.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="12pro-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\12pro-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="samsung-galaxy-a32-4g-thumb-trang-600x600-200x200-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\galaxya32.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ipad-pro-2021-129-inch-gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ipad-pro-2021-129-inch-gray.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\ipadpro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

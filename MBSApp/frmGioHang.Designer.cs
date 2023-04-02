@@ -51,7 +51,7 @@ namespace MBSApp
             this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1092, 94);
+            this.label1.Size = new System.Drawing.Size(1183, 94);
             this.label1.TabIndex = 0;
             this.label1.Text = "GIỎ HÀNG CỦA BẠN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -75,7 +75,7 @@ namespace MBSApp
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1068, 290);
+            this.dataGridView1.Size = new System.Drawing.Size(1159, 365);
             this.dataGridView1.TabIndex = 1;
             // 
             // MaSP
@@ -120,6 +120,7 @@ namespace MBSApp
             this.CapNhatSP.Name = "CapNhatSP";
             this.CapNhatSP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CapNhatSP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CapNhatSP.Width = 150;
             // 
             // XoaSP
             // 
@@ -136,15 +137,21 @@ namespace MBSApp
             this.XoaSP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.XoaSP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.XoaSP.Text = "";
+            this.XoaSP.Width = 150;
             // 
             // frmGioHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1092, 633);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1183, 600);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmGioHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giỏ hàng";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -53,6 +53,7 @@ namespace MBSApp
             // 
             // cboRoleLists
             // 
+            this.cboRoleLists.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRoleLists.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRoleLists.FormattingEnabled = true;
             this.cboRoleLists.Items.AddRange(new object[] {
@@ -63,7 +64,7 @@ namespace MBSApp
             this.cboRoleLists.Name = "cboRoleLists";
             this.cboRoleLists.Size = new System.Drawing.Size(440, 33);
             this.cboRoleLists.TabIndex = 0;
-            this.cboRoleLists.Text = "Khách hàng";
+            this.cboRoleLists.Tag = "Khách hàng";
             // 
             // label2
             // 

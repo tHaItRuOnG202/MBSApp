@@ -19,7 +19,13 @@ namespace MBSApp
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            frmGioHang frmGioHang = new frmGioHang();
+            frmGioHang.ShowDialog();
+        }
+
+        private void TrangChuMuaHang_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

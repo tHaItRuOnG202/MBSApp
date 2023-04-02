@@ -83,16 +83,6 @@ namespace MBSApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _14promax1 {
-            get {
-                object obj = ResourceManager.GetObject("14promax1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap apple_watch_s7_41mm_do_thumbnew_600x600 {
             get {
                 object obj = ResourceManager.GetObject("apple-watch-s7-41mm-do-thumbnew-600x600", resourceCulture);

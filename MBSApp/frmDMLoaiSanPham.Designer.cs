@@ -107,7 +107,7 @@ namespace MBSApp
             this.dgvDMSanPham.RowTemplate.Height = 28;
             this.dgvDMSanPham.Size = new System.Drawing.Size(915, 276);
             this.dgvDMSanPham.TabIndex = 3;
-            this.dgvDMSanPham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDMSanPham_CellContentClick);
+            this.dgvDMSanPham.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDMSanPham_CellMouseClick);
             // 
             // MaLoaiSP
             // 

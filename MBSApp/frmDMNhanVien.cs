@@ -30,7 +30,7 @@ namespace MBSApp
         {
             try
             {
-                Employee empl = new Employee(txtMaNV.Text, txtHoNV.Text, txtTenNV.Text, 
+                Employee empl = new Employee(txtMaNV.Text, txtHoNV.Text, txtTenNV.Text,
                         DateTime.Parse(dtpNgaySinh.Text), txtDiaChi.Text, txtDienThoai.Text);
 
                 if (txtMaNV.Text == String.Empty)
@@ -79,8 +79,8 @@ namespace MBSApp
             dgvDMNhanVien.Rows[i].Cells[4].Value.ToString(),
             dgvDMNhanVien.Rows[i].Cells[5].Value.ToString());
             ctrl_D.RemoveEmployees(empl);
-            
-            dgvDMNhanVien.DataSource = ctrl_D.ShowEmployees();        
+
+            dgvDMNhanVien.DataSource = ctrl_D.ShowEmployees();
         }
 
         private void dgvDMNhanVien_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

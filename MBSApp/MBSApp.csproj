@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{83C6E05C-2449-404F-8373-4F495F126CEB}</ProjectGuid>
+    <ProjectGuid>{342D7D17-B6B2-433E-9FB1-ACA237A54519}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>MBSApp</RootNamespace>
     <AssemblyName>MBSApp</AssemblyName>
@@ -47,12 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmTrangChu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTrangChu.Designer.cs">
-      <DependentUpon>frmTrangChu.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmDMKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +95,12 @@
     <Compile Include="frmTimHoaDon.Designer.cs">
       <DependentUpon>frmTimHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTrangChu.Designer.cs">
+      <DependentUpon>frmTrangChu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrangChuMuaHang.cs">
@@ -109,17 +109,8 @@
     <Compile Include="TrangChuMuaHang.Designer.cs">
       <DependentUpon>TrangChuMuaHang.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmTrangChu.resx">
-      <DependentUpon>frmTrangChu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDMKhachHang.resx">
-      <DependentUpon>frmDMKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDMLoaiSanPham.resx">
       <DependentUpon>frmDMLoaiSanPham.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDMNhanVien.resx">
-      <DependentUpon>frmDMNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGioHang.resx">
       <DependentUpon>frmGioHang.cs</DependentUpon>
@@ -132,9 +123,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTaiKhoan.resx">
       <DependentUpon>frmTaiKhoan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTimHoaDon.resx">
-      <DependentUpon>frmTimHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -163,42 +151,44 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MBS.BUS\MBSApp.BUS.csproj">
-      <Project>{1e6feeb5-d1d8-46d8-afde-c8a232df9d85}</Project>
+    <ProjectReference Include="..\MBSApp.BUS\MBSApp.BUS.csproj">
+      <Project>{e12885a5-3bbf-4c1e-9214-9340f7e6f292}</Project>
       <Name>MBSApp.BUS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MBS.DAO\MBSApp.DAO.csproj">
-      <Project>{22776777-E7BA-4038-9F42-396B7F6BE1CD}</Project>
+    <ProjectReference Include="..\MBSApp.DAO\MBSApp.DAO.csproj">
+      <Project>{48d106f2-1278-42f2-b1a0-ce2e23f45b8e}</Project>
       <Name>MBSApp.DAO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MBS.DTO\MBSApp.DTO.csproj">
-      <Project>{fa51d65c-14a9-4352-ae41-97a096c2046d}</Project>
+    <ProjectReference Include="..\MBSApp.DTO\MBSApp.DTO.csproj">
+      <Project>{4320480d-f920-4f52-8eb1-29fcc1032bfd}</Project>
       <Name>MBSApp.DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\14promax.png" />
+    <Content Include="Resources\14promax.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\samsung-galaxy-a32-4g-thumb-trang-600x600-200x200-1.jpg" />
+    <None Include="Resources\galaxya32.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\chuot-khong-day-silent-rapoo-m300-xanh-500.jpg" />
+    <None Include="Resources\mouse.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tai-nghe-bluetooth-true-wireless-jbl-t120-thumb.jpeg" />
+    <Content Include="Resources\jblt120.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\12pro-1.png" />
+    <Content Include="Resources\12pro.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lg-gram-2022-i7-17z90qgah78a5-fix-thumb.jpg" />
+    <None Include="Resources\lggram.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\apple-watch-s7-41mm-do-thumbnew-600x600.jpeg" />
+    <Content Include="Resources\applewatch.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ipad-pro-2021-129-inch-gray.jpg" />
+    <None Include="Resources\ipadpro.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

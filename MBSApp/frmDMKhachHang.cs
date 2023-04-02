@@ -51,7 +51,7 @@ namespace MBSApp
             {
                 MessageBox.Show("Không được trùng mã khách hàng!");
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Bạn chưa nhập mã khách hàng");
             }
@@ -75,20 +75,20 @@ namespace MBSApp
             //    if (!row.IsNewRow) dgvDMKhachHang.Rows.Remove(row);
 
             int i = dgvDMKhachHang.CurrentRow.Index;
-            
+
             //for (int i = dgvDMKhachHang.CurrentRow.Index; i <= dgvDMKhachHang.SelectedRows.Count; i++)
             //{
-                Customer cust = new Customer(dgvDMKhachHang.Rows[i].Cells[0].Value.ToString(),
-                dgvDMKhachHang.Rows[i].Cells[1].Value.ToString(), 
-                DateTime.Parse(dgvDMKhachHang.Rows[i].Cells[2].Value.ToString()), 
-                dgvDMKhachHang.Rows[i].Cells[3].Value.ToString(),
-                dgvDMKhachHang.Rows[i].Cells[4].Value.ToString(), 
-                dgvDMKhachHang.Rows[i].Cells[5].Value.ToString());
-                ctrl_D.RemoveCustomers(cust);
+            Customer cust = new Customer(dgvDMKhachHang.Rows[i].Cells[0].Value.ToString(),
+            dgvDMKhachHang.Rows[i].Cells[1].Value.ToString(),
+            DateTime.Parse(dgvDMKhachHang.Rows[i].Cells[2].Value.ToString()),
+            dgvDMKhachHang.Rows[i].Cells[3].Value.ToString(),
+            dgvDMKhachHang.Rows[i].Cells[4].Value.ToString(),
+            dgvDMKhachHang.Rows[i].Cells[5].Value.ToString());
+            ctrl_D.RemoveCustomers(cust);
             //}
             //if (ib.XoaThanhVien(c))
             //{
-                dgvDMKhachHang.DataSource = ctrl_D.ShowCustomers();
+            dgvDMKhachHang.DataSource = ctrl_D.ShowCustomers();
             //}
         }
 

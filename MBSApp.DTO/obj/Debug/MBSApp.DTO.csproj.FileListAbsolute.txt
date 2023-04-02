@@ -1,4 +1,12 @@
-E:\LTGD\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.csproj.AssemblyReference.cache
-E:\LTGD\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.Properties.Resources.resources
-E:\LTGD\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.csproj.GenerateResource.cache
-E:\LTGD\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.csproj.CoreCompileInputs.cache
+E:\LTCSDL_HERE\MBSApp\MBSApp.DTO\bin\Debug\MBSApp.DTO.dll
+E:\LTCSDL_HERE\MBSApp\MBSApp.DTO\bin\Debug\MBSApp.DTO.pdb
+E:\LTCSDL_HERE\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.csproj.AssemblyReference.cache
+E:\LTCSDL_HERE\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.csproj.CoreCompileInputs.cache
+E:\LTCSDL_HERE\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.dll
+E:\LTCSDL_HERE\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.pdb
+E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp.DTO\bin\Debug\MBSApp.DTO.dll
+E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp.DTO\bin\Debug\MBSApp.DTO.pdb
+E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.csproj.AssemblyReference.cache
+E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.csproj.CoreCompileInputs.cache
+E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.dll
+E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp.DTO\obj\Debug\MBSApp.DTO.pdb
