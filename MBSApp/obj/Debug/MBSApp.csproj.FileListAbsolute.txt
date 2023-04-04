@@ -44,3 +44,6 @@ E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.exe
 E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.pdb
 E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.frmTaiKhoan.resources
 E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.frmDMLoaiSanPham.resources
+E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.frmTimHoaDon.resources
+E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.frmDMKhachHang.resources
+E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.frmDMNhanVien.resources

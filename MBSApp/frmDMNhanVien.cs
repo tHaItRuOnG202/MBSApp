@@ -23,7 +23,16 @@ namespace MBSApp
 
         private void frmDMNhanVien_Load(object sender, EventArgs e)
         {
+            txtMaNV.Enabled = false;
             dgvDMNhanVien.DataSource = ctrl_D.ShowEmployees();
+        }
+        private void ClearTxt()
+        {
+            txtMaNV.Text = String.Empty;
+            txtHoNV.Text = String.Empty;
+            txtTenNV.Text = String.Empty;
+            txtDiaChi.Text = String.Empty;
+            txtDienThoai.Text = String.Empty;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -40,11 +49,7 @@ namespace MBSApp
                 }
                 ctrl_D.AddEmployees(empl);
                 frmDMNhanVien_Load(sender, e);
-                txtMaNV.Text = String.Empty;
-                txtHoNV.Text = String.Empty;
-                txtTenNV.Text = String.Empty;
-                txtDiaChi.Text = String.Empty;
-                txtDienThoai.Text = String.Empty;
+                ClearTxt();
             }
             catch (SqlException)
             {
@@ -81,6 +86,7 @@ namespace MBSApp
             ctrl_D.RemoveEmployees(empl);
 
             dgvDMNhanVien.DataSource = ctrl_D.ShowEmployees();
+            ClearTxt();
         }
 
         private void dgvDMNhanVien_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -92,6 +98,7 @@ namespace MBSApp
             dtpNgaySinh.Text = dgvDMNhanVien.Rows[i].Cells[3].Value.ToString();
             txtDiaChi.Text = dgvDMNhanVien.Rows[i].Cells[4].Value.ToString();
             txtDienThoai.Text = dgvDMNhanVien.Rows[i].Cells[5].Value.ToString();
+            txtMaNV.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -99,7 +106,16 @@ namespace MBSApp
             Employee empl = new Employee(txtMaNV.Text, txtHoNV.Text, txtTenNV.Text,
                 DateTime.Parse(dtpNgaySinh.Text), txtDiaChi.Text, txtDienThoai.Text);
             ctrl_D.EditEmployees(empl);
+            txtMaNV.Enabled = false;
             dgvDMNhanVien.DataSource = ctrl_D.ShowEmployees();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (txtMaNV.Text != String.Empty)
+                MessageBox.Show("Không thể sửa mã!");
+            else
+                txtMaNV.Enabled = true;
         }
     }
 }

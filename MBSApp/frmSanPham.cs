@@ -23,6 +23,14 @@ namespace MBSApp
         {
             InitializeComponent();
         }
+        
+        private void ClearTxt()
+        {
+            txtMaSP.Text = String.Empty;
+            txtTenSP.Text = String.Empty;
+            txtDonGiaBan.Text = String.Empty;
+            txtDonVi.Text = String.Empty;
+        }
 
         //Chua viet duoc trong DAO nen phai viet trong GUI
         //public void ShowSanPham()
@@ -50,10 +58,14 @@ namespace MBSApp
             //{
             //    Image HinhSP = Image.FromFile(file);
             //}
+            txtMaSP.Enabled = false;
             dgvDMSanPham.DataSource = ctrl_D.ShowProducts();
             cboMaLoaiSP.DataSource = ctrl_D.ShowCategories();
             cboMaLoaiSP.DisplayMember = "TenLoaiSP";
             cboMaLoaiSP.ValueMember = "MaLoaiSP";
+            cbMaGiamGia.DataSource = ctrl_D.ShowDiscount();
+            cbMaGiamGia.DisplayMember = "GiamGia";
+            cbMaGiamGia.ValueMember = "MaGiamGia";
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -91,6 +103,7 @@ namespace MBSApp
             try
             {
                 ProductView prv = new ProductView(txtMaSP.Text, txtTenSP.Text, cboMaLoaiSP.Text, txtDonVi.Text, txtDonGiaBan.Text);
+                Product prd = new Product(txtMaSP.Text, txtTenSP.Text, txtDonVi.Text, txtDonGiaBan.Text, cbMaGiamGia.ValueMember, cboMaLoaiSP.SelectedValue.ToString());
                 /*
                 if (txtMaSP.Text == String.Empty)
                 {
@@ -98,7 +111,7 @@ namespace MBSApp
                     throw ex;
                 }*/
 
-                ctrl_D.AddProducts(prv);
+                ctrl_D.AddProducts(prd);
                 //{
                 //    MessageBox.Show("thanh cong");
                 //}
@@ -120,6 +133,11 @@ namespace MBSApp
             //{
             //    MessageBox.Show("Bạn chưa nhập mã sản phẩm!");
             //}
+        }
+
+        private void btnSuaSP_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(cbMaGiamGia.SelectedValue.ToString());
         }
     }
 }

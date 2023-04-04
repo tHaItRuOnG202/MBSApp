@@ -23,6 +23,7 @@ namespace MBSApp
 
         private void frmDMLoaiSanPham_Load(object sender, EventArgs e)
         {
+            txtMaLoaiSP.Enabled = false;
             dgvDMSanPham.DataSource = ctrl_D.ShowCategories();
         }
 
@@ -39,8 +40,7 @@ namespace MBSApp
                 }
                 ctrl_D.AddCategories(cate);
                 frmDMLoaiSanPham_Load(sender, e);
-                txtMaLoaiSP.Text = String.Empty;
-                txtTenLoaiSP.Text = String.Empty;
+                txtMaLoaiSP.Text = txtTenLoaiSP.Text = String.Empty;
             }
             catch (SqlException)
             {
@@ -61,6 +61,7 @@ namespace MBSApp
             ctrl_D.RemoveCategories(cate);
 
             dgvDMSanPham.DataSource = ctrl_D.ShowCategories();
+            txtMaLoaiSP.Text = txtTenLoaiSP.Text = String.Empty;
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -79,6 +80,7 @@ namespace MBSApp
         {
             Categories cate = new Categories(txtMaLoaiSP.Text, txtTenLoaiSP.Text);
             ctrl_D.EditCategories(cate);
+            txtMaLoaiSP.Enabled = false;
             dgvDMSanPham.DataSource = ctrl_D.ShowCategories();
         }
 
@@ -87,6 +89,15 @@ namespace MBSApp
             int i = dgvDMSanPham.CurrentRow.Index;
             txtMaLoaiSP.Text = dgvDMSanPham.Rows[i].Cells[0].Value.ToString();
             txtTenLoaiSP.Text = dgvDMSanPham.Rows[i].Cells[1].Value.ToString();
+            txtMaLoaiSP.Enabled = false;
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (txtMaLoaiSP.Text != String.Empty)
+                MessageBox.Show("Không thể sửa mã!");
+            else
+                txtMaLoaiSP.Enabled = true;
         }
     }
 }

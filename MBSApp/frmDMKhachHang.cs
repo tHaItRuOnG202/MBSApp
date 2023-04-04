@@ -24,7 +24,17 @@ namespace MBSApp
 
         private void frmDMKhachHang_Load(object sender, EventArgs e)
         {
+            txtMaKhachHang.Enabled = false;
             dgvDMKhachHang.DataSource = ctrl_D.ShowCustomers();
+        }
+
+        private void ClearTxt()
+        {
+            txtMaKhachHang.Text = String.Empty;
+            txtTenkhachhang.Text = String.Empty;
+            txtDienThoai.Text = String.Empty;
+            txtDienThoai.Text = String.Empty;
+            txtEmail.Text = String.Empty;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -41,11 +51,7 @@ namespace MBSApp
                 }
                 ctrl_D.AddCustomers(cust);
                 frmDMKhachHang_Load(sender, e);
-                txtMaKhachHang.Text = String.Empty;
-                txtTenkhachhang.Text = String.Empty;
-                txtDienThoai.Text = String.Empty;
-                txtDienThoai.Text = String.Empty;
-                txtEmail.Text = String.Empty;
+                ClearTxt();
             }
             catch (SqlException)
             {
@@ -90,6 +96,7 @@ namespace MBSApp
             //{
             dgvDMKhachHang.DataSource = ctrl_D.ShowCustomers();
             //}
+            ClearTxt();
         }
 
         private void dgvDMKhachHang_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -101,6 +108,7 @@ namespace MBSApp
             txtDiaChi.Text = dgvDMKhachHang.Rows[i].Cells[3].Value.ToString();
             txtDienThoai.Text = dgvDMKhachHang.Rows[i].Cells[4].Value.ToString();
             txtEmail.Text = dgvDMKhachHang.Rows[i].Cells[5].Value.ToString();
+            txtMaKhachHang.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -108,7 +116,16 @@ namespace MBSApp
             Customer cust = new Customer(txtMaKhachHang.Text, txtTenkhachhang.Text,
                 DateTime.Parse(dtpNgaysinh.Text), txtDiaChi.Text, txtDienThoai.Text, txtEmail.Text);
             ctrl_D.EditCustomers(cust);
+            txtMaKhachHang.Enabled = false;
             dgvDMKhachHang.DataSource = ctrl_D.ShowCustomers();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (txtMaKhachHang.Text != String.Empty)
+                MessageBox.Show("Không thể sửa mã!");
+            else
+                txtMaKhachHang.Enabled = true;
         }
     }
 }

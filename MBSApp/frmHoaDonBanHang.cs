@@ -194,7 +194,7 @@ namespace MBSApp
                 {
                     dgvHoaDon.Rows.Add(pv.MaSP, pv.TenSP, rd.SoLuong, pv.DonGia, pv.DonVi, d.GiamGia, rd.ThanhTien);
                     count = 1;
-                    MessageBox.Show("BUG 0");
+                    MessageBox.Show("Thêm sản phẩm mới thành công!");
                 }
                 else
                 {
@@ -216,7 +216,7 @@ namespace MBSApp
                     {
                         dgvHoaDon.Rows.Add(pv.MaSP, pv.TenSP, rd.SoLuong, pv.DonGia, pv.DonVi, d.GiamGia, rd.ThanhTien);
                         count = 1;
-                        MessageBox.Show("BUG 1");
+                        MessageBox.Show("Sản phẩm mới đã được thêm vào!");
                     }
                     dgvHoaDon.Refresh();
                 }

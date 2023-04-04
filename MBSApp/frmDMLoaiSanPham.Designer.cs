@@ -103,6 +103,7 @@ namespace MBSApp
             this.dgvDMSanPham.Location = new System.Drawing.Point(64, 188);
             this.dgvDMSanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDMSanPham.Name = "dgvDMSanPham";
+            this.dgvDMSanPham.ReadOnly = true;
             this.dgvDMSanPham.RowHeadersWidth = 62;
             this.dgvDMSanPham.RowTemplate.Height = 28;
             this.dgvDMSanPham.Size = new System.Drawing.Size(915, 276);
@@ -115,6 +116,7 @@ namespace MBSApp
             this.MaLoaiSP.HeaderText = "Mã loại sản phẩm";
             this.MaLoaiSP.MinimumWidth = 8;
             this.MaLoaiSP.Name = "MaLoaiSP";
+            this.MaLoaiSP.ReadOnly = true;
             this.MaLoaiSP.Width = 320;
             // 
             // TenLoaiSP
@@ -123,6 +125,7 @@ namespace MBSApp
             this.TenLoaiSP.HeaderText = "Tên loại sản phẩm";
             this.TenLoaiSP.MinimumWidth = 8;
             this.TenLoaiSP.Name = "TenLoaiSP";
+            this.TenLoaiSP.ReadOnly = true;
             this.TenLoaiSP.Width = 320;
             // 
             // btnThem
@@ -162,6 +165,7 @@ namespace MBSApp
             this.btnSua.TabIndex = 4;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnLuu
             // 

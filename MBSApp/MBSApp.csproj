@@ -109,8 +109,14 @@
     <Compile Include="TrangChuMuaHang.Designer.cs">
       <DependentUpon>TrangChuMuaHang.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmDMKhachHang.resx">
+      <DependentUpon>frmDMKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDMLoaiSanPham.resx">
       <DependentUpon>frmDMLoaiSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMNhanVien.resx">
+      <DependentUpon>frmDMNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGioHang.resx">
       <DependentUpon>frmGioHang.cs</DependentUpon>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTaiKhoan.resx">
       <DependentUpon>frmTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimHoaDon.resx">
+      <DependentUpon>frmTimHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

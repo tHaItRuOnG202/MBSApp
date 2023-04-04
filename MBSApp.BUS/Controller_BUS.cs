@@ -33,6 +33,11 @@ namespace MBSApp.BUS
             return ctrl_D.LoadProducts();
         }
 
+        public DataTable ShowDiscount()
+        {
+            return ctrl_D.LoadDiscount();
+        }
+
         //public List<ProductView> ShowProducts()
         //{
         //    return ctrl_D.LoadProducts();
@@ -98,9 +103,9 @@ namespace MBSApp.BUS
             ctrl_D.UpdateCategories(cate);
         }
 
-        public void AddProducts(ProductView prod)
+        public void AddProducts(Product prod)
         {
-            //ctrl_D.InsertProducts(prod);
+            ctrl_D.InsertProducts(prod);
         }
 
         public DataTable ShowReceipt(string recp)

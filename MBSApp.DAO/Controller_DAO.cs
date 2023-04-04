@@ -94,6 +94,16 @@ namespace MBSApp.DAO
         //    return Product;
         //}
 
+        public DataTable LoadDiscount()
+        {
+            SqlDataAdapter da;
+            DataTable dt = new DataTable();
+            string query = "Select * From GiamGia";
+            da = new SqlDataAdapter(query, cd.Connect());
+            da.Fill(dt);
+            return dt;
+        }
+
         public void InsertCustomers(Customer cust)
         {
             KhachHang khachHang = new KhachHang();
@@ -250,21 +260,21 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
-        //public void InsertProducts(ProductView prod)
-        //{
-        //    SanPham sanPham = new SanPham();
-        //    LoaiSP loaiSP = new LoaiSP();
-        //    sanPham.MaSP = prod.MaSP;
-        //    sanPham.TenSP = prod.TenSP;
-        //    loaiSP.TenLoaiSP = prod.TenLoaiSP;
-        //    sanPham.DonVi = prod.DonVi;
-        //    sanPham.DonGia = prod.DonGia;
+        public void InsertProducts(Product prod)
+        {
+            SanPham sanPham = new SanPham();
+            sanPham.MaSP = prod.MaSP;
+            sanPham.TenSP = prod.TenSP;
+            sanPham.DonVi = prod.DonVi;
+            sanPham.DonGia = decimal.Parse(prod.DonGia);
+            sanPham.MaLoaiSP = prod.MaLoaiSP;
+            sanPham.MaGiamGia = prod.MaGiamGia;
 
-        //    db = new QLBanHangDataContext();
-        //    db.SanPhams.InsertOnSubmit(sanPham);
+            db = new QLBanHangDataContext();
+            db.SanPhams.InsertOnSubmit(sanPham);
 
-        //    db.SubmitChanges();
-        //}
+            db.SubmitChanges();
+        }
 
 
         //public void InsertProducts(ProductView pv)
@@ -342,12 +352,10 @@ namespace MBSApp.DAO
                     txtKQ = selectedProduct2.GiamGia1;
                     return txtKQ;
                 }
-
             }
-            return "ngộ ha";
+            return "Ngộ ha";
         }
         
-
 
         public DataTable InsertProductToReceipt(Receipt r, ReceiptDetail rd, Discount d, ProductView pv)
         {
