@@ -16,7 +16,7 @@ namespace MBSApp
 {
     public partial class frmDMKhachHang : Form
     {
-        Controller_BUS ctrl_D = new Controller_BUS();
+        Controller_BUS ctrl_B = new Controller_BUS();
         public frmDMKhachHang()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace MBSApp
         private void frmDMKhachHang_Load(object sender, EventArgs e)
         {
             txtMaKhachHang.Enabled = false;
-            dgvDMKhachHang.DataSource = ctrl_D.ShowCustomers();
+            dgvDMKhachHang.DataSource = ctrl_B.ShowCustomers();
         }
 
         private void ClearTxt()
@@ -49,7 +49,7 @@ namespace MBSApp
                     Exception ex = new Exception();
                     throw ex;
                 }
-                ctrl_D.AddCustomers(cust);
+                ctrl_B.AddCustomers(cust);
                 frmDMKhachHang_Load(sender, e);
                 ClearTxt();
             }
@@ -65,13 +65,13 @@ namespace MBSApp
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            DataTable dt = ctrl_D.FindCustomers(txtTimKiem.Text);
+            DataTable dt = ctrl_B.FindCustomers(txtTimKiem.Text);
             dgvDMKhachHang.DataSource = dt;
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            DataTable dt = ctrl_D.FindCustomers(txtTimKiem.Text);
+            DataTable dt = ctrl_B.FindCustomers(txtTimKiem.Text);
             dgvDMKhachHang.DataSource = dt;
         }
 
@@ -90,11 +90,11 @@ namespace MBSApp
             dgvDMKhachHang.Rows[i].Cells[3].Value.ToString(),
             dgvDMKhachHang.Rows[i].Cells[4].Value.ToString(),
             dgvDMKhachHang.Rows[i].Cells[5].Value.ToString());
-            ctrl_D.RemoveCustomers(cust);
+            ctrl_B.RemoveCustomers(cust);
             //}
             //if (ib.XoaThanhVien(c))
             //{
-            dgvDMKhachHang.DataSource = ctrl_D.ShowCustomers();
+            dgvDMKhachHang.DataSource = ctrl_B.ShowCustomers();
             //}
             ClearTxt();
         }
@@ -115,9 +115,9 @@ namespace MBSApp
         {
             Customer cust = new Customer(txtMaKhachHang.Text, txtTenkhachhang.Text,
                 DateTime.Parse(dtpNgaysinh.Text), txtDiaChi.Text, txtDienThoai.Text, txtEmail.Text);
-            ctrl_D.EditCustomers(cust);
+            ctrl_B.EditCustomers(cust);
             txtMaKhachHang.Enabled = false;
-            dgvDMKhachHang.DataSource = ctrl_D.ShowCustomers();
+            dgvDMKhachHang.DataSource = ctrl_B.ShowCustomers();
         }
 
         private void btnSua_Click(object sender, EventArgs e)

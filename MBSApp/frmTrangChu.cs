@@ -65,8 +65,8 @@ namespace MBSApp
 
         private void mnuFindHoaDon_Click(object sender, EventArgs e)
         {
-            frmTimHoaDon frmTimHoaDon = new frmTimHoaDon();
-            frmTimHoaDon.ShowDialog();
+            frmQuanLyHoaDon frmQuanLyHoaDon = new frmQuanLyHoaDon();
+            frmQuanLyHoaDon.ShowDialog();
         }
 
         private void mnuThoat_Click(object sender, EventArgs e)

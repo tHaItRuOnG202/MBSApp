@@ -70,65 +70,44 @@ namespace MBSApp
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
+            DataTable dt = ctrl_D.FindProduct(txtTimKiem.Text);
+            dgvDMSanPham.DataSource = dt;
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btXoa_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvDMSanPham_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
-        private void cboMaLoaiSP_SelectedValueChanged(object sender, EventArgs e)
-        {
-            
+            DataTable dt = ctrl_D.FindProduct(txtTimKiem.Text);
+            dgvDMSanPham.DataSource = dt;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 ProductView prv = new ProductView(txtMaSP.Text, txtTenSP.Text, cboMaLoaiSP.Text, txtDonVi.Text, txtDonGiaBan.Text);
-                Product prd = new Product(txtMaSP.Text, txtTenSP.Text, txtDonVi.Text, txtDonGiaBan.Text, cbMaGiamGia.ValueMember, cboMaLoaiSP.SelectedValue.ToString());
-                /*
+                Product prd = new Product(txtMaSP.Text, txtTenSP.Text, txtDonVi.Text, txtDonGiaBan.Text, cboMaLoaiSP.SelectedValue.ToString(), cbMaGiamGia.SelectedValue.ToString());
+
                 if (txtMaSP.Text == String.Empty)
                 {
                     Exception ex = new Exception();
                     throw ex;
-                }*/
+                }
 
                 ctrl_D.AddProducts(prd);
                 //{
-                //    MessageBox.Show("thanh cong");
+                //    MessageBox.Show("Thành công");
                 //}
                 //else
                 //{
-                //    MessageBox.Show("sai");
+                //    MessageBox.Show("Sai");
                 //}
                 frmSanPham_Load(sender, e);
-                //txtMaSP.Text = String.Empty;
-                //txtTenSP.Text = String.Empty;
-                //txtDonGiaBan.Text = String.Empty;
-                //txtDonVi.Text = String.Empty;
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Không được trùng mã sản phẩm!");
-            }
+                ClearTxt();
+            //}
+            //catch (SqlException)
+            //{
+                //MessageBox.Show("Không được trùng mã sản phẩm!");
+            //}
             //catch (Exception)
             //{
             //    MessageBox.Show("Bạn chưa nhập mã sản phẩm!");
@@ -137,7 +116,49 @@ namespace MBSApp
 
         private void btnSuaSP_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(cbMaGiamGia.SelectedValue.ToString());
+            if (txtMaSP.Text != String.Empty)
+                MessageBox.Show("Không thể sửa mã!");
+            else
+                txtMaSP.Enabled = true;
+        }
+
+        private void btnXoaSP_Click(object sender, EventArgs e)
+        {
+            int i = dgvDMSanPham.CurrentRow.Index;
+
+            Product prod = new Product(dgvDMSanPham.Rows[i].Cells[0].Value.ToString(),
+            dgvDMSanPham.Rows[i].Cells[1].Value.ToString(),
+            dgvDMSanPham.Rows[i].Cells[2].Value.ToString(),
+            dgvDMSanPham.Rows[i].Cells[3].Value.ToString(),
+            dgvDMSanPham.Rows[i].Cells[4].Value.ToString(),
+            dgvDMSanPham.Rows[i].Cells[5].Value.ToString());
+            ctrl_D.RemoveProduct(prod);
+
+            dgvDMSanPham.DataSource = ctrl_D.ShowProducts();
+            ClearTxt();
+        }
+
+        private void btnLuuSP_Click(object sender, EventArgs e)
+        {
+            Product prod = new Product(txtMaSP.Text, txtTenSP.Text, txtDonVi.Text, txtDonGiaBan.Text, cboMaLoaiSP.SelectedValue.ToString(), cbMaGiamGia.SelectedValue.ToString());
+            ctrl_D.EditProduct(prod);
+            txtMaSP.Enabled = false;
+            dgvDMSanPham.DataSource = ctrl_D.ShowProducts();
+        }
+
+        private void dgvDMSanPham_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            int i = dgvDMSanPham.CurrentRow.Index;
+
+            txtMaSP.Text = dgvDMSanPham.Rows[i].Cells[0].Value.ToString();
+            txtTenSP.Text = dgvDMSanPham.Rows[i].Cells[1].Value.ToString();
+            cboMaLoaiSP.Text = dgvDMSanPham.Rows[i].Cells[2].Value.ToString();
+            txtDonVi.Text = dgvDMSanPham.Rows[i].Cells[3].Value.ToString();
+            txtDonGiaBan.Text = dgvDMSanPham.Rows[i].Cells[4].Value.ToString();
+            cbMaGiamGia.Text = dgvDMSanPham.Rows[i].Cells[5].Value.ToString();
+
+            txtMaSP.Enabled = false;
         }
     }
 }

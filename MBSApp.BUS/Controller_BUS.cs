@@ -38,6 +38,16 @@ namespace MBSApp.BUS
             return ctrl_D.LoadDiscount();
         }
 
+        public DataTable ShowReceipt()
+        {
+            return ctrl_D.LoadReceipt();
+        }
+
+        public DataTable ShowReceiptDetail(string id)
+        {
+            return ctrl_D.LoadReceiptDetail(id);
+        }
+
         //public List<ProductView> ShowProducts()
         //{
         //    return ctrl_D.LoadProducts();
@@ -108,10 +118,21 @@ namespace MBSApp.BUS
             ctrl_D.InsertProducts(prod);
         }
 
-        public DataTable ShowReceipt(string recp)
+        public DataTable FindProduct(string keyword)
         {
-            return ctrl_D.LoadReceiptDetail(recp);
+            return ctrl_D.SearchProducts(keyword);
         }
+
+        public void RemoveProduct(Product prod)
+        {
+            ctrl_D.DeleteProducts(prod);
+        }
+
+        public void EditProduct(Product prod)
+        {
+            ctrl_D.UpdateProduct(prod);
+        }
+
 
         //public void GetPrByID(string pid)
         //{
@@ -137,10 +158,10 @@ namespace MBSApp.BUS
             return ctrl_D.GetCustomerByID(c);
         }
 
-        public DataTable AddProductToReceipt(Receipt r, ReceiptDetail rd, Discount d, ProductView pv)
-        {
-            return ctrl_D.InsertProductToReceipt(r, rd, d, pv);
-        }
+        //public DataTable AddProductToReceipt(Receipt r, ReceiptDetail rd, Discount d, ProductView pv)
+        //{
+        //    return ctrl_D.InsertProductToReceipt(r, rd, d, pv);
+        //}
 
         //public GiamGia GetDiscByID(Discount dc)
         //{
@@ -150,6 +171,21 @@ namespace MBSApp.BUS
         public string GetDistByProd(string mgg)
         {
             return ctrl_D.GetDiscountByProduct(mgg);
+        }
+
+        public void AddReceipt(string idRec, string idCust, string idEmpl, DateTime dateSale)
+        {
+            ctrl_D.InsertReceipt(idRec, idCust, idEmpl, dateSale);
+        }
+
+        public void AddReceiptDetail(string idRec, string idPro, string quantity, string uPrice, string totalPrice)
+        {
+            ctrl_D.InsertReceiptDetail(idRec, idPro, quantity, uPrice, totalPrice);
+        }
+
+        public DataTable FindReceiptCustomers(string kw)
+        {
+            return ctrl_D.SearchReceiptCustomers(kw);
         }
     }
 }

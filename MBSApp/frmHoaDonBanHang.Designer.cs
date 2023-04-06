@@ -31,7 +31,6 @@ namespace MBSApp
         {
             this.gbThongTinChung = new System.Windows.Forms.GroupBox();
             this.cboMaKH = new System.Windows.Forms.ComboBox();
-            this.cboMaNhanVien = new System.Windows.Forms.ComboBox();
             this.dtpNgayBan = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +50,7 @@ namespace MBSApp
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoaHD = new System.Windows.Forms.Button();
             this.btnThemHD = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbTongTien = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +72,7 @@ namespace MBSApp
             this.lbTenHang = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.lbMaNV = new System.Windows.Forms.Label();
             this.gbThongTinChung.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
@@ -81,7 +81,6 @@ namespace MBSApp
             // gbThongTinChung
             // 
             this.gbThongTinChung.Controls.Add(this.cboMaKH);
-            this.gbThongTinChung.Controls.Add(this.cboMaNhanVien);
             this.gbThongTinChung.Controls.Add(this.dtpNgayBan);
             this.gbThongTinChung.Controls.Add(this.label4);
             this.gbThongTinChung.Controls.Add(this.label3);
@@ -91,6 +90,7 @@ namespace MBSApp
             this.gbThongTinChung.Controls.Add(this.txtMaHoaDon);
             this.gbThongTinChung.Controls.Add(this.label1);
             this.gbThongTinChung.Controls.Add(this.lbTenKH);
+            this.gbThongTinChung.Controls.Add(this.lbMaNV);
             this.gbThongTinChung.Controls.Add(this.lbTenNhanVien);
             this.gbThongTinChung.Location = new System.Drawing.Point(28, 42);
             this.gbThongTinChung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -110,16 +110,6 @@ namespace MBSApp
             this.cboMaKH.Size = new System.Drawing.Size(247, 24);
             this.cboMaKH.TabIndex = 48;
             this.cboMaKH.TextChanged += new System.EventHandler(this.cboMaKH_TextChanged);
-            // 
-            // cboMaNhanVien
-            // 
-            this.cboMaNhanVien.FormattingEnabled = true;
-            this.cboMaNhanVien.Location = new System.Drawing.Point(140, 74);
-            this.cboMaNhanVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboMaNhanVien.Name = "cboMaNhanVien";
-            this.cboMaNhanVien.Size = new System.Drawing.Size(290, 24);
-            this.cboMaNhanVien.TabIndex = 48;
-            this.cboMaNhanVien.TextChanged += new System.EventHandler(this.cboMaNhanVien_TextChanged);
             // 
             // dtpNgayBan
             // 
@@ -240,7 +230,7 @@ namespace MBSApp
             this.groupBox1.Controls.Add(this.btnThem);
             this.groupBox1.Controls.Add(this.btnXoaHD);
             this.groupBox1.Controls.Add(this.btnThemHD);
-            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.lbTongTien);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.dgvHoaDon);
             this.groupBox1.Controls.Add(this.cboMaHang);
@@ -338,6 +328,7 @@ namespace MBSApp
             this.btnXoaHD.TabIndex = 56;
             this.btnXoaHD.Text = "Xóa HD";
             this.btnXoaHD.UseVisualStyleBackColor = false;
+            this.btnXoaHD.Click += new System.EventHandler(this.btnXoaHD_Click);
             // 
             // btnThemHD
             // 
@@ -352,15 +343,15 @@ namespace MBSApp
             this.btnThemHD.UseVisualStyleBackColor = false;
             this.btnThemHD.Click += new System.EventHandler(this.btnThemHD_Click);
             // 
-            // label11
+            // lbTongTien
             // 
-            this.label11.BackColor = System.Drawing.SystemColors.Info;
-            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(635, 424);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(271, 25);
-            this.label11.TabIndex = 51;
+            this.lbTongTien.BackColor = System.Drawing.SystemColors.Info;
+            this.lbTongTien.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTongTien.Location = new System.Drawing.Point(635, 424);
+            this.lbTongTien.Name = "lbTongTien";
+            this.lbTongTien.Size = new System.Drawing.Size(271, 25);
+            this.lbTongTien.TabIndex = 51;
             // 
             // label17
             // 
@@ -390,6 +381,7 @@ namespace MBSApp
             this.dgvHoaDon.RowTemplate.Height = 28;
             this.dgvHoaDon.Size = new System.Drawing.Size(902, 201);
             this.dgvHoaDon.TabIndex = 49;
+            this.dgvHoaDon.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellEndEdit);
             // 
             // MaSP
             // 
@@ -397,6 +389,7 @@ namespace MBSApp
             this.MaSP.HeaderText = "Mã sản phẩm";
             this.MaSP.MinimumWidth = 8;
             this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
             this.MaSP.Width = 150;
             // 
             // TenSP
@@ -405,6 +398,7 @@ namespace MBSApp
             this.TenSP.HeaderText = "Tên sản phẩm";
             this.TenSP.MinimumWidth = 8;
             this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
             this.TenSP.Width = 250;
             // 
             // SoLuong
@@ -421,6 +415,7 @@ namespace MBSApp
             this.DonGia.HeaderText = "Đơn giá";
             this.DonGia.MinimumWidth = 8;
             this.DonGia.Name = "DonGia";
+            this.DonGia.ReadOnly = true;
             this.DonGia.Width = 150;
             // 
             // DonVi
@@ -429,6 +424,7 @@ namespace MBSApp
             this.DonVi.HeaderText = "Đơn Vị";
             this.DonVi.MinimumWidth = 8;
             this.DonVi.Name = "DonVi";
+            this.DonVi.ReadOnly = true;
             this.DonVi.Width = 150;
             // 
             // GiamGia
@@ -437,6 +433,7 @@ namespace MBSApp
             this.GiamGia.HeaderText = "Giảm giá";
             this.GiamGia.MinimumWidth = 8;
             this.GiamGia.Name = "GiamGia";
+            this.GiamGia.ReadOnly = true;
             this.GiamGia.Width = 150;
             // 
             // TongTien
@@ -445,6 +442,7 @@ namespace MBSApp
             this.TongTien.HeaderText = "Tổng tiền";
             this.TongTien.MinimumWidth = 8;
             this.TongTien.Name = "TongTien";
+            this.TongTien.ReadOnly = true;
             this.TongTien.Width = 150;
             // 
             // cboMaHang
@@ -455,7 +453,6 @@ namespace MBSApp
             this.cboMaHang.Name = "cboMaHang";
             this.cboMaHang.Size = new System.Drawing.Size(117, 24);
             this.cboMaHang.TabIndex = 48;
-            this.cboMaHang.SelectedIndexChanged += new System.EventHandler(this.cboMaHang_SelectedIndexChanged);
             this.cboMaHang.TextChanged += new System.EventHandler(this.cboMaHang_TextChanged);
             // 
             // label13
@@ -567,6 +564,16 @@ namespace MBSApp
             this.label16.TabIndex = 45;
             this.label16.Text = "Mã hàng:";
             // 
+            // lbMaNV
+            // 
+            this.lbMaNV.BackColor = System.Drawing.SystemColors.Info;
+            this.lbMaNV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaNV.Location = new System.Drawing.Point(140, 75);
+            this.lbMaNV.Name = "lbMaNV";
+            this.lbMaNV.Size = new System.Drawing.Size(290, 25);
+            this.lbMaNV.TabIndex = 45;
+            // 
             // frmHoaDonBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -602,7 +609,6 @@ namespace MBSApp
         private System.Windows.Forms.TextBox txtMaHoaDon;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpNgayBan;
-        private System.Windows.Forms.ComboBox cboMaNhanVien;
         private System.Windows.Forms.ComboBox cboMaKH;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cboMaHang;
@@ -616,7 +622,7 @@ namespace MBSApp
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lbDonVi;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbTongTien;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DataGridView dgvHoaDon;
         private System.Windows.Forms.Button btnDong;
@@ -624,6 +630,11 @@ namespace MBSApp
         private System.Windows.Forms.Button btnInHD;
         private System.Windows.Forms.Button btnXoaHD;
         private System.Windows.Forms.Button btnThemHD;
+        private System.Windows.Forms.Label lbTenKH;
+        private System.Windows.Forms.Label lbTenNhanVien;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Label lbGiamGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
@@ -631,10 +642,6 @@ namespace MBSApp
         private System.Windows.Forms.DataGridViewTextBoxColumn DonVi;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiamGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
-        private System.Windows.Forms.Label lbTenKH;
-        private System.Windows.Forms.Label lbTenNhanVien;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Label lbGiamGia;
+        private System.Windows.Forms.Label lbMaNV;
     }
 }

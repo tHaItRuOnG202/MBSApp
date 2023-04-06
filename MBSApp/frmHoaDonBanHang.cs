@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,11 @@ namespace MBSApp
     public partial class frmHoaDonBanHang : Form
     {
         Controller_BUS ctrl_B = new Controller_BUS();
+        public static string HoTen = "";
+        public static string MaNV = "";
         public frmHoaDonBanHang()
         {
+            frmTaiKhoan f = new frmTaiKhoan();
             InitializeComponent();
         }
 
@@ -30,14 +34,15 @@ namespace MBSApp
             lbGiamGia.Text = String.Empty;
             cboMaKH.Text = String.Empty;
             lbTenKH.Text = String.Empty;
-            cboMaNhanVien.Text = String.Empty;
+            lbMaNV.Text = String.Empty;
+            //cboMaNhanVien.Text = String.Empty;
             lbTenNhanVien.Text = String.Empty;
         }
 
         private void LoadReceipt()
         {
-            cboMaNhanVien.DataSource = ctrl_B.ShowEmployees();
-            cboMaNhanVien.DisplayMember = "MaNV";
+            //cboMaNhanVien.DataSource = ctrl_B.ShowEmployees();
+            //cboMaNhanVien.DisplayMember = "MaNV";
             cboMaKH.DataSource = ctrl_B.ShowCustomers();
             cboMaKH.DisplayMember = "MaKH";
             cboMaHang.DataSource = ctrl_B.ShowProducts();
@@ -48,23 +53,42 @@ namespace MBSApp
         {
             LoadReceipt();
             ClearReceipt();
+            lbMaNV.Text = MaNV;
+            lbTenNhanVien.Text = HoTen;
         }
 
         private void btnDong_Click(object sender, EventArgs e)
         {
-            //dgvHoaDon.DataSource = ctrl_B.ShowReceipt(txtMaHoaDon.Text);
+            this.Close();
         }
 
         private void btnThemHD_Click(object sender, EventArgs e)
         {
-            
+            string idHD = txtMaHoaDon.Text;
+            string idKH = cboMaKH.Text;
+            string idNV = lbMaNV.Text;
+            DateTime dateTime = DateTime.Parse(dtpNgayBan.Text);
+            ctrl_B.AddReceipt(idHD, idKH, idNV, dateTime);
+
+            for(int i = 0; i < dgvHoaDon.RowCount - 1; i++)
+            {
+                string idPro = dgvHoaDon.Rows[i].Cells[0].Value.ToString();
+                string quantity = dgvHoaDon.Rows[i].Cells[2].Value.ToString();
+                string uPrice = dgvHoaDon.Rows[i].Cells[3].Value.ToString();
+                string totalPrice = dgvHoaDon.Rows[i].Cells[6].Value.ToString();
+                //decimal uPrice = decimal.Parse(row.Cells[3].ToString());
+                //decimal totalPrice = decimal.Parse(row.Cells[6].ToString());
+
+                ctrl_B.AddReceiptDetail(idHD, idPro, quantity, uPrice, totalPrice);
+            }
+            MessageBox.Show("Thêm hóa đơn thành công!");
+            //ctrl_B.AddReceiptDetail(idHD, idPro, quantity, uPrice, totalPrice);
         }
 
         private void cboMaHang_TextChanged(object sender, EventArgs e)
         {
             ReceiptDetail rd = new ReceiptDetail(cboMaHang.Text, lbTenHang.Text, "Void", 1, "Void", "Void", lbGiamGia.Text) ;
             SanPham sp = ctrl_B.GetPrById(rd);
-            //GiamGia gg = ctrl_B.GetDiscByID(d);
 
             if (sp != null)
             {
@@ -77,11 +101,11 @@ namespace MBSApp
 
         private void cboMaNhanVien_TextChanged(object sender, EventArgs e)
         {
-            Employee em = new Employee(cboMaNhanVien.Text, "Void", "Void", DateTime.Parse("01 / 01 / 2023"), "Void", "Void");
-            NhanVien nv = ctrl_B.GetEmplByID(em);
+            //Employee em = new Employee(cboMaNhanVien.Text, "Void", "Void", DateTime.Parse("01 / 01 / 2023"), "Void", "Void");
+            //NhanVien nv = ctrl_B.GetEmplByID(em);
 
-            if (nv != null)
-                lbTenNhanVien.Text = nv.HoNV.ToString() + " " + nv.TenNV.ToString();
+            //if (nv != null)
+            //    lbTenNhanVien.Text = nv.HoNV.ToString() + " " + nv.TenNV.ToString();
         }
 
         private void cboMaKH_TextChanged(object sender, EventArgs e)
@@ -95,8 +119,29 @@ namespace MBSApp
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(dgvHoaDon.Rows.Count.ToString());
-            MessageBox.Show(dgvHoaDon.Rows.ToString());
+            try
+            {
+                int rowIndex = dgvHoaDon.CurrentCell.RowIndex;
+                if (dgvHoaDon.Rows[rowIndex].Cells[0].Value.ToString() == String.Empty || dgvHoaDon.Rows[rowIndex].Cells[0].Value == null)
+                {
+                    MessageBox.Show("Không có gì để xóa!");
+                }
+                else
+                {
+                    dgvHoaDon.Rows.RemoveAt(rowIndex);
+                }
+                double thanhTien = 0;
+                int columnIndex = dgvHoaDon.Columns["TongTien"].Index;
+                for (int i = 0; i < dgvHoaDon.RowCount - 1; i++)
+                {
+                    thanhTien += double.Parse(dgvHoaDon.Rows[i].Cells[columnIndex].Value.ToString());
+                }
+                lbTongTien.Text = thanhTien.ToString("N0") + " đ";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         //Code của Thái
@@ -177,16 +222,28 @@ namespace MBSApp
         {
             try
             {
-                Receipt r = new Receipt(txtMaHoaDon.Text, cboMaKH.Text, cboMaNhanVien.Text, DateTime.Parse(dtpNgayBan.Text));
+                Receipt r = new Receipt(txtMaHoaDon.Text, cboMaKH.Text, lbMaNV.Text, DateTime.Parse(dtpNgayBan.Text));
                 ProductView pv = new ProductView(cboMaHang.Text, lbTenHang.Text, "Void", lbDonVi.Text, lbDonGia.Text);
                 ReceiptDetail rd = new ReceiptDetail(cboMaHang.Text, lbTenHang.Text, "Void", Int16.Parse(txtSoLuong.Text), lbDonVi.Text, lbGiamGia.Text, (Int16.Parse(txtSoLuong.Text) * decimal.Parse(lbDonGia.Text) - decimal.Parse(lbGiamGia.Text)).ToString());
                 Discount d = new Discount("Void", lbGiamGia.Text);
+
+                if(txtMaHoaDon.Text == String.Empty)
+                {
+                    MessageBox.Show("Vui lòng nhập mã hóa đơn");
+                    return;
+                }
 
                 if (txtSoLuong.Text == "")
                 {
                     MessageBox.Show("Vui lòng nhập số lượng");
                     return;
                 }
+
+                if (cboMaKH.Text == String.Empty)
+                {
+                    MessageBox.Show("Vui lòng nhập mã hóa đơn");
+                    return;
+                }    
 
                 rd.SoLuong = Int16.Parse(txtSoLuong.Text);
 
@@ -218,8 +275,15 @@ namespace MBSApp
                         count = 1;
                         MessageBox.Show("Sản phẩm mới đã được thêm vào!");
                     }
-                    dgvHoaDon.Refresh();
                 }
+
+                double thanhTien = 0;
+                int columnIndex = dgvHoaDon.Columns["TongTien"].Index;
+                for (int i = 0; i < dgvHoaDon.RowCount - 1; i++)
+                {
+                    thanhTien += double.Parse(dgvHoaDon.Rows[i].Cells[columnIndex].Value.ToString());
+                }
+                lbTongTien.Text = thanhTien.ToString();
             }
             catch (FormatException)
             {
@@ -227,11 +291,42 @@ namespace MBSApp
             }
         }
 
+        //private void dgvHoaDon_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    int i = dgvHoaDon.CurrentCell.RowIndex;
+        //    string soLuong = dgvHoaDon.Rows[i].Cells[2].Value.ToString();
+        //    string donGia = dgvHoaDon.Rows[i].Cells[4].Value.ToString();
+        //    string giamGia = dgvHoaDon.Rows[i].Cells[5].Value.ToString();
 
+        //    dgvHoaDon.Rows[i].Cells[6].Value = ((Int16.Parse(soLuong) * decimal.Parse(donGia)) - (Int16.Parse(soLuong) * decimal.Parse(giamGia))).ToString();
+        //}
 
-        private void cboMaHang_SelectedIndexChanged(object sender, EventArgs e)
+        private void dgvHoaDon_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            
+            int rowIndex = dgvHoaDon.CurrentCell.RowIndex;
+
+            string soLuong = dgvHoaDon.Rows[rowIndex].Cells[2].Value.ToString();
+            string donGia = dgvHoaDon.Rows[rowIndex].Cells[3].Value.ToString();
+            string giamGia = dgvHoaDon.Rows[rowIndex].Cells[5].Value.ToString();
+            //MessageBox.Show(soLuong + donGia + giamGia);
+
+            string tongGiamGia = (Int32.Parse(soLuong) * double.Parse(giamGia)).ToString();
+            string tongTien = (Int32.Parse(soLuong) * double.Parse(donGia) - Int32.Parse(soLuong) * double.Parse(giamGia)).ToString();
+            dgvHoaDon.Rows[rowIndex].Cells[5].Value = tongGiamGia;
+            dgvHoaDon.Rows[rowIndex].Cells[6].Value = tongTien;
+
+            double thanhTien = 0;
+            int columnIndex = dgvHoaDon.Columns["TongTien"].Index;
+            for (int i = 0; i < dgvHoaDon.RowCount - 1; i++)
+            {
+                thanhTien += double.Parse(dgvHoaDon.Rows[i].Cells[columnIndex].Value.ToString());
+            }
+            lbTongTien.Text = thanhTien.ToString("C");
+        }
+
+        private void btnXoaHD_Click(object sender, EventArgs e)
+        {
+            dgvHoaDon.Rows.Clear();
         }
     }
 }

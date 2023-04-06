@@ -161,11 +161,11 @@ namespace MBSApp.DAO
 		
 		private string _MaSP;
 		
-		private System.Nullable<short> _SoLuong;
+		private string _SoLuong;
 		
-		private System.Nullable<decimal> _DonGia;
+		private string _DonGia;
 		
-		private System.Nullable<decimal> _ThanhTien;
+		private string _ThanhTien;
 		
 		private EntityRef<HoaDon> _HoaDon;
 		
@@ -179,11 +179,11 @@ namespace MBSApp.DAO
     partial void OnMaHDChanged();
     partial void OnMaSPChanging(string value);
     partial void OnMaSPChanged();
-    partial void OnSoLuongChanging(System.Nullable<short> value);
+    partial void OnSoLuongChanging(string value);
     partial void OnSoLuongChanged();
-    partial void OnDonGiaChanging(System.Nullable<decimal> value);
+    partial void OnDonGiaChanging(string value);
     partial void OnDonGiaChanged();
-    partial void OnThanhTienChanging(System.Nullable<decimal> value);
+    partial void OnThanhTienChanging(string value);
     partial void OnThanhTienChanged();
     #endregion
 		
@@ -194,7 +194,7 @@ namespace MBSApp.DAO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHD", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHD", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaHD
 		{
 			get
@@ -218,7 +218,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaSP
 		{
 			get
@@ -242,8 +242,8 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="SmallInt")]
-		public System.Nullable<short> SoLuong
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="NVarChar(100)")]
+		public string SoLuong
 		{
 			get
 			{
@@ -262,8 +262,8 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonGia", DbType="Money")]
-		public System.Nullable<decimal> DonGia
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonGia", DbType="NVarChar(100)")]
+		public string DonGia
 		{
 			get
 			{
@@ -282,8 +282,8 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThanhTien", DbType="Money")]
-		public System.Nullable<decimal> ThanhTien
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThanhTien", DbType="NVarChar(100)")]
+		public string ThanhTien
 		{
 			get
 			{
@@ -430,7 +430,7 @@ namespace MBSApp.DAO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccID", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccID", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string AccID
 		{
 			get
@@ -450,7 +450,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDangNhap", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDangNhap", DbType="NVarChar(100)")]
 		public string TenDangNhap
 		{
 			get
@@ -470,7 +470,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="NVarChar(100)")]
 		public string MatKhau
 		{
 			get
@@ -490,7 +490,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="NVarChar(100)")]
 		public string UserID
 		{
 			get
@@ -631,7 +631,7 @@ namespace MBSApp.DAO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiamGia", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiamGia", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaGiamGia
 		{
 			get
@@ -651,7 +651,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="GiamGia", Storage="_GiamGia1", DbType="NVarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="GiamGia", Storage="_GiamGia1", DbType="NVarChar(200)")]
 		public string GiamGia1
 		{
 			get
@@ -759,7 +759,7 @@ namespace MBSApp.DAO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHD", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHD", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaHD
 		{
 			get
@@ -779,7 +779,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKH", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKH", DbType="NVarChar(100)")]
 		public string MaKH
 		{
 			get
@@ -803,7 +803,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="NVarChar(100)")]
 		public string MaNV
 		{
 			get
@@ -1008,7 +1008,7 @@ namespace MBSApp.DAO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKH", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKH", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaKH
 		{
 			get
@@ -1028,7 +1028,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenKH", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenKH", DbType="NVarChar(100)")]
 		public string TenKH
 		{
 			get
@@ -1068,7 +1068,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(100)")]
 		public string DiaChi
 		{
 			get
@@ -1088,7 +1088,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(100)")]
 		public string DienThoai
 		{
 			get
@@ -1108,7 +1108,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
 		public string Email
 		{
 			get
@@ -1227,7 +1227,7 @@ namespace MBSApp.DAO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiSP", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiSP", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaLoaiSP
 		{
 			get
@@ -1247,7 +1247,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLoaiSP", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLoaiSP", DbType="NVarChar(100)")]
 		public string TenLoaiSP
 		{
 			get
@@ -1360,7 +1360,7 @@ namespace MBSApp.DAO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaNV
 		{
 			get
@@ -1380,7 +1380,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoNV", DbType="NVarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoNV", DbType="NVarChar(100)")]
 		public string HoNV
 		{
 			get
@@ -1400,7 +1400,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNV", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNV", DbType="NVarChar(100)")]
 		public string TenNV
 		{
 			get
@@ -1440,7 +1440,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(100)")]
 		public string DiaChi
 		{
 			get
@@ -1460,7 +1460,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(100)")]
 		public string DienThoai
 		{
 			get
@@ -1563,11 +1563,9 @@ namespace MBSApp.DAO
 		
 		private string _DonVi;
 		
-		private System.Nullable<decimal> _DonGia;
+		private string _DonGia;
 		
 		private string _MaLoaiSP;
-		
-		private string _HinhSP;
 		
 		private string _MaGiamGia;
 		
@@ -1587,12 +1585,10 @@ namespace MBSApp.DAO
     partial void OnTenSPChanged();
     partial void OnDonViChanging(string value);
     partial void OnDonViChanged();
-    partial void OnDonGiaChanging(System.Nullable<decimal> value);
+    partial void OnDonGiaChanging(string value);
     partial void OnDonGiaChanged();
     partial void OnMaLoaiSPChanging(string value);
     partial void OnMaLoaiSPChanged();
-    partial void OnHinhSPChanging(string value);
-    partial void OnHinhSPChanged();
     partial void OnMaGiamGiaChanging(string value);
     partial void OnMaGiamGiaChanged();
     #endregion
@@ -1605,7 +1601,7 @@ namespace MBSApp.DAO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaSP
 		{
 			get
@@ -1625,7 +1621,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSP", DbType="NVarChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSP", DbType="NVarChar(100)")]
 		public string TenSP
 		{
 			get
@@ -1645,7 +1641,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonVi", DbType="NVarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonVi", DbType="NVarChar(100)")]
 		public string DonVi
 		{
 			get
@@ -1665,8 +1661,8 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonGia", DbType="Money")]
-		public System.Nullable<decimal> DonGia
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonGia", DbType="NVarChar(100)")]
+		public string DonGia
 		{
 			get
 			{
@@ -1685,7 +1681,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiSP", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiSP", DbType="NVarChar(100)")]
 		public string MaLoaiSP
 		{
 			get
@@ -1709,27 +1705,7 @@ namespace MBSApp.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhSP", DbType="NVarChar(MAX)")]
-		public string HinhSP
-		{
-			get
-			{
-				return this._HinhSP;
-			}
-			set
-			{
-				if ((this._HinhSP != value))
-				{
-					this.OnHinhSPChanging(value);
-					this.SendPropertyChanging();
-					this._HinhSP = value;
-					this.SendPropertyChanged("HinhSP");
-					this.OnHinhSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiamGia", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiamGia", DbType="NVarChar(100)")]
 		public string MaGiamGia
 		{
 			get

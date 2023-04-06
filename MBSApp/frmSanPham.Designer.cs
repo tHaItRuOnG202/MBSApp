@@ -29,9 +29,6 @@ namespace MBSApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbDMHoaDonBan = new System.Windows.Forms.Label();
             this.cboMaLoaiSP = new System.Windows.Forms.ComboBox();
             this.txtTenSP = new System.Windows.Forms.TextBox();
@@ -41,28 +38,25 @@ namespace MBSApp
             this.label5 = new System.Windows.Forms.Label();
             this.txtDonGiaBan = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvDMSanPham = new System.Windows.Forms.DataGridView();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLoaiSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HinhSP = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnLuuSP = new System.Windows.Forms.Button();
             this.btnSuaSP = new System.Windows.Forms.Button();
             this.btnXoaSP = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnHinhAnh = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDonVi = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbMaGiamGia = new System.Windows.Forms.ComboBox();
+            this.dgvDMSanPham = new System.Windows.Forms.DataGridView();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoaiSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiamGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDMSanPham)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbDMHoaDonBan
@@ -80,12 +74,11 @@ namespace MBSApp
             // cboMaLoaiSP
             // 
             this.cboMaLoaiSP.FormattingEnabled = true;
-            this.cboMaLoaiSP.Location = new System.Drawing.Point(159, 161);
+            this.cboMaLoaiSP.Location = new System.Drawing.Point(162, 160);
             this.cboMaLoaiSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboMaLoaiSP.Name = "cboMaLoaiSP";
             this.cboMaLoaiSP.Size = new System.Drawing.Size(216, 24);
             this.cboMaLoaiSP.TabIndex = 56;
-            this.cboMaLoaiSP.SelectedValueChanged += new System.EventHandler(this.cboMaLoaiSP_SelectedValueChanged);
             // 
             // txtTenSP
             // 
@@ -154,99 +147,6 @@ namespace MBSApp
             this.label1.TabIndex = 57;
             this.label1.Text = "Đơn giá bán:";
             // 
-            // dgvDMSanPham
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDMSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDMSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDMSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaSP,
-            this.TenSP,
-            this.TenLoaiSP,
-            this.DonVi,
-            this.DonGia,
-            this.HinhSP});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDMSanPham.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvDMSanPham.Location = new System.Drawing.Point(23, 241);
-            this.dgvDMSanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvDMSanPham.Name = "dgvDMSanPham";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDMSanPham.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvDMSanPham.RowHeadersWidth = 62;
-            this.dgvDMSanPham.RowTemplate.Height = 28;
-            this.dgvDMSanPham.Size = new System.Drawing.Size(1097, 290);
-            this.dgvDMSanPham.TabIndex = 65;
-            this.dgvDMSanPham.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDMSanPham_CellMouseClick);
-            // 
-            // MaSP
-            // 
-            this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.HeaderText = "Mã sản phẩm";
-            this.MaSP.MinimumWidth = 8;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.Width = 150;
-            // 
-            // TenSP
-            // 
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.HeaderText = "Tên sản phẩm";
-            this.TenSP.MinimumWidth = 8;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.Width = 190;
-            // 
-            // TenLoaiSP
-            // 
-            this.TenLoaiSP.DataPropertyName = "TenLoaiSP";
-            this.TenLoaiSP.HeaderText = "Loại sản phẩm";
-            this.TenLoaiSP.MinimumWidth = 8;
-            this.TenLoaiSP.Name = "TenLoaiSP";
-            this.TenLoaiSP.Width = 150;
-            // 
-            // DonVi
-            // 
-            this.DonVi.DataPropertyName = "DonVi";
-            this.DonVi.HeaderText = "Đơn vị";
-            this.DonVi.MinimumWidth = 8;
-            this.DonVi.Name = "DonVi";
-            this.DonVi.Width = 130;
-            // 
-            // DonGia
-            // 
-            this.DonGia.DataPropertyName = "DonGia";
-            this.DonGia.HeaderText = "Đơn giá bán";
-            this.DonGia.MinimumWidth = 8;
-            this.DonGia.Name = "DonGia";
-            this.DonGia.Width = 150;
-            // 
-            // HinhSP
-            // 
-            this.HinhSP.DataPropertyName = "HinhSP";
-            this.HinhSP.HeaderText = "Hình ảnh";
-            this.HinhSP.MinimumWidth = 8;
-            this.HinhSP.Name = "HinhSP";
-            this.HinhSP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HinhSP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.HinhSP.Width = 150;
-            // 
             // btnLuuSP
             // 
             this.btnLuuSP.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -258,6 +158,7 @@ namespace MBSApp
             this.btnLuuSP.TabIndex = 68;
             this.btnLuuSP.Text = "Lưu";
             this.btnLuuSP.UseVisualStyleBackColor = false;
+            this.btnLuuSP.Click += new System.EventHandler(this.btnLuuSP_Click);
             // 
             // btnSuaSP
             // 
@@ -283,6 +184,7 @@ namespace MBSApp
             this.btnXoaSP.TabIndex = 70;
             this.btnXoaSP.Text = "Xóa";
             this.btnXoaSP.UseVisualStyleBackColor = false;
+            this.btnXoaSP.Click += new System.EventHandler(this.btnXoaSP_Click);
             // 
             // txtTimKiem
             // 
@@ -310,19 +212,6 @@ namespace MBSApp
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnHinhAnh
-            // 
-            this.btnHinhAnh.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnHinhAnh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHinhAnh.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnHinhAnh.Location = new System.Drawing.Point(970, 167);
-            this.btnHinhAnh.Name = "btnHinhAnh";
-            this.btnHinhAnh.Size = new System.Drawing.Size(112, 41);
-            this.btnHinhAnh.TabIndex = 73;
-            this.btnHinhAnh.Text = "Hỉnh ảnh";
-            this.btnHinhAnh.UseVisualStyleBackColor = false;
-            this.btnHinhAnh.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // label2
             // 
@@ -356,15 +245,6 @@ namespace MBSApp
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(970, 50);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 93);
-            this.pictureBox1.TabIndex = 74;
-            this.pictureBox1.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -383,21 +263,84 @@ namespace MBSApp
             this.cbMaGiamGia.Name = "cbMaGiamGia";
             this.cbMaGiamGia.Size = new System.Drawing.Size(216, 24);
             this.cbMaGiamGia.TabIndex = 56;
-            this.cbMaGiamGia.SelectedValueChanged += new System.EventHandler(this.cboMaLoaiSP_SelectedValueChanged);
+            // 
+            // dgvDMSanPham
+            // 
+            this.dgvDMSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDMSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSP,
+            this.TenSP,
+            this.TenLoaiSP,
+            this.DonVi,
+            this.DonGia,
+            this.GiamGia});
+            this.dgvDMSanPham.Location = new System.Drawing.Point(35, 251);
+            this.dgvDMSanPham.Name = "dgvDMSanPham";
+            this.dgvDMSanPham.RowHeadersWidth = 51;
+            this.dgvDMSanPham.RowTemplate.Height = 24;
+            this.dgvDMSanPham.Size = new System.Drawing.Size(1103, 271);
+            this.dgvDMSanPham.TabIndex = 74;
+            this.dgvDMSanPham.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDMSanPham_CellMouseClick);
+            // 
+            // MaSP
+            // 
+            this.MaSP.DataPropertyName = "MaSP";
+            this.MaSP.HeaderText = "Mã sản phẩm";
+            this.MaSP.MinimumWidth = 6;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.Width = 125;
+            // 
+            // TenSP
+            // 
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên sản phẩm";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.Width = 125;
+            // 
+            // TenLoaiSP
+            // 
+            this.TenLoaiSP.DataPropertyName = "TenLoaiSP";
+            this.TenLoaiSP.HeaderText = "Loại sản phẩm";
+            this.TenLoaiSP.MinimumWidth = 6;
+            this.TenLoaiSP.Name = "TenLoaiSP";
+            this.TenLoaiSP.Width = 125;
+            // 
+            // DonVi
+            // 
+            this.DonVi.DataPropertyName = "DonVi";
+            this.DonVi.HeaderText = "Đơn vị";
+            this.DonVi.MinimumWidth = 6;
+            this.DonVi.Name = "DonVi";
+            this.DonVi.Width = 125;
+            // 
+            // DonGia
+            // 
+            this.DonGia.DataPropertyName = "DonGia";
+            this.DonGia.HeaderText = "Đơn giá";
+            this.DonGia.MinimumWidth = 6;
+            this.DonGia.Name = "DonGia";
+            this.DonGia.Width = 125;
+            // 
+            // GiamGia
+            // 
+            this.GiamGia.DataPropertyName = "GiamGia";
+            this.GiamGia.HeaderText = "Giảm giá";
+            this.GiamGia.MinimumWidth = 6;
+            this.GiamGia.Name = "GiamGia";
+            this.GiamGia.Width = 125;
             // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 635);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnHinhAnh);
+            this.Controls.Add(this.dgvDMSanPham);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.btnLuuSP);
             this.Controls.Add(this.btnSuaSP);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.btnXoaSP);
-            this.Controls.Add(this.dgvDMSanPham);
             this.Controls.Add(this.txtDonVi);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDonGiaBan);
@@ -417,7 +360,6 @@ namespace MBSApp
             this.Text = "Danh mục sản phẩm";
             this.Load += new System.EventHandler(this.frmSanPham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDMSanPham)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,25 +376,23 @@ namespace MBSApp
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDonGiaBan;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvDMSanPham;
         private System.Windows.Forms.Button btnLuuSP;
         private System.Windows.Forms.Button btnSuaSP;
         private System.Windows.Forms.Button btnXoaSP;
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnHinhAnh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DonVi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
-        private System.Windows.Forms.DataGridViewImageColumn HinhSP;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDonVi;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbMaGiamGia;
+        private System.Windows.Forms.DataGridView dgvDMSanPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonVi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiamGia;
     }
 }

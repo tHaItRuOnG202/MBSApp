@@ -47,3 +47,4 @@ E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.frmDMLoaiSanPham.resources
 E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.frmTimHoaDon.resources
 E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.frmDMKhachHang.resources
 E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.frmDMNhanVien.resources
+E:\LTCSDL\LTCSDL_HERE\MBSApp\MBSApp\obj\Debug\MBSApp.frmQuanLyHoaDon.resources

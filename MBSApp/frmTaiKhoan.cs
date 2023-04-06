@@ -71,7 +71,10 @@ namespace MBSApp
                                select new
                                {
                                    u.TenDangNhap,
-                                   u.MatKhau
+                                   u.MatKhau,
+                                   n.MaNV,
+                                   n.HoNV,
+                                   n.TenNV
                                };
 
                     int count = 0;
@@ -79,9 +82,10 @@ namespace MBSApp
                     {
                         if (txtTenDN.Text == n.TenDangNhap && txtMatKhau.Text == n.MatKhau)
                         {
-                            //MessageBox.Show(n.TenDangNhap, n.MatKhau);
                             MessageBox.Show("Successful!");
                             frmTrangChu frmTrangChu = new frmTrangChu();
+                            frmHoaDonBanHang.HoTen = n.HoNV + " " + n.TenNV;
+                            frmHoaDonBanHang.MaNV = n.MaNV;
                             frmTrangChu.ShowDialog();
                             break;
                         }

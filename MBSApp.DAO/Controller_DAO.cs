@@ -15,6 +15,7 @@ namespace MBSApp.DAO
         QLBanHangDataContext db;
         Connection_DAO cd = new Connection_DAO();
 
+        //Load khách hàng
         public DataTable LoadCustomers()
         {
             SqlDataAdapter da;
@@ -25,6 +26,7 @@ namespace MBSApp.DAO
             return dt;
         }
 
+        //Load danh mục sản phẩm
         public DataTable LoadCategories()
         {
             SqlDataAdapter da;
@@ -35,6 +37,7 @@ namespace MBSApp.DAO
             return dt;
         }
 
+        //Load nhân viên
         public DataTable LoadEmployees()
         {
             SqlDataAdapter da;
@@ -45,16 +48,40 @@ namespace MBSApp.DAO
             return dt;
         }
 
+        //Load sản phẩm
         public DataTable LoadProducts()
         {
             SqlDataAdapter da;
             DataTable dt = new DataTable();
-            string query = "Select sp.MaSP, sp.TenSP, ls.TenLoaiSP, sp.DonVi, sp.DonGia From SanPham sp, LoaiSP ls Where sp.MaLoaiSP = ls.MaLoaiSP";
+            string query = "Select sp.MaSP, sp.TenSP, ls.TenLoaiSP, sp.DonVi, sp.DonGia, gg.GiamGia From SanPham sp, LoaiSP ls, GiamGia gg Where sp.MaLoaiSP = ls.MaLoaiSP And gg.MaGiamGia = sp.MaGiamGia";
             da = new SqlDataAdapter(query, cd.Connect());
             da.Fill(dt);
             return dt;
         }
 
+        //Load hóa đơn
+        //public DataTable LoadReceipt()
+        //{
+        //    SqlDataAdapter da;
+        //    DataTable dt = new DataTable();
+        //    string query = "Select * From HoaDon";
+        //    da = new SqlDataAdapter(query, cd.Connect());
+        //    da.Fill(dt);
+        //    return dt;
+        //}
+
+        //LoadHoaDonV2
+        public DataTable LoadReceipt()
+        {
+            SqlDataAdapter da;
+            DataTable dt = new DataTable();
+            string query = String.Format("Select hd.MaHD, CONCAT(nv.HoNV, ' ', nv.TenNV) as TenNhanVien, kh.TenKH, hd.NgayLapHD From HoaDon hd, NhanVien nv, KhachHang kh Where hd.MaNV = nv.MaNV And hd.MaKH = kh.MaKH");
+            da = new SqlDataAdapter(query, cd.Connect());
+            da.Fill(dt);
+            return dt;
+        }
+
+        //Load chi tiết hóa đơn
         public DataTable LoadReceiptDetail(string recp)
         {
             SqlDataAdapter da;
@@ -65,6 +92,7 @@ namespace MBSApp.DAO
             return dt;
         }
 
+        //Load sản phẩm bằng LinQ
         //public List<ProductView> LoadProducts()
         //{
         //    List<ProductView> Product = new List<ProductView>();
@@ -94,6 +122,7 @@ namespace MBSApp.DAO
         //    return Product;
         //}
 
+        //Load giảm giá
         public DataTable LoadDiscount()
         {
             SqlDataAdapter da;
@@ -104,6 +133,7 @@ namespace MBSApp.DAO
             return dt;
         }
 
+        //Thêm 1 khách hàng
         public void InsertCustomers(Customer cust)
         {
             KhachHang khachHang = new KhachHang();
@@ -120,6 +150,7 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
+        //Tìm kiếm khách hàng theo tên
         public DataTable SearchCustomers(string kw)
         {
             SqlDataAdapter da;
@@ -130,6 +161,19 @@ namespace MBSApp.DAO
             return dt;
         }
 
+        //Tìm kiếm hóa đơn theo khách hàng
+        public DataTable SearchReceiptCustomers(string kw)
+        {
+            SqlDataAdapter da;
+            DataTable dt = new DataTable();
+            string query = "Select hd.MaHD, CONCAT(nv.HoNV, ' ', nv.TenNV) as TenNhanVien, kh.TenKH, hd.NgayLapHD From HoaDon hd, NhanVien nv, KhachHang kh Where hd.MaNV = nv.MaNV And hd.MaKH = kh.MaKH And kh.TenKH like N'" + kw + "%' ";
+
+            da = new SqlDataAdapter(query, cd.Connect());
+            da.Fill(dt);
+            return dt;
+        }
+
+        //Xóa 1 khách hàng
         public void DeleteCustomers(Customer cust)
         {
             KhachHang khachHang = new KhachHang();
@@ -146,6 +190,7 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
+        //Cập nhật thông tin 1 khách hàng
         public void UpdateCustomers(Customer cust)
         {
             db = new QLBanHangDataContext();
@@ -160,6 +205,7 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
+        //Thêm 1 nhân viên
         public void InsertEmployees(Employee empl)
         {
             NhanVien nhanVien = new NhanVien();
@@ -176,6 +222,7 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
+        //Tìm kiếm nhân viên theo tên
         public DataTable SearchEmployees(string kw)
         {
             SqlDataAdapter da;
@@ -186,6 +233,7 @@ namespace MBSApp.DAO
             return dt;
         }
 
+        //Xóa 1 nhân viên
         public void DeleteEmployees(Employee empl)
         {
             NhanVien nhanVien = new NhanVien();
@@ -202,6 +250,7 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
+        //Câp nhật thông tin 1 nhân viên
         public void UpdateEmployees(Employee empl)
         {
             db = new QLBanHangDataContext();
@@ -216,6 +265,7 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
+        //Thêm 1 danh mục sản phẩm
         public void InsertCategories(Categories cate)
         {
             LoaiSP loaiSP = new LoaiSP();
@@ -228,6 +278,7 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
+        //Tìm kiếm danh mục sản phẩm theo tên
         public DataTable SearchCategories(string kw)
         {
             SqlDataAdapter da;
@@ -238,6 +289,7 @@ namespace MBSApp.DAO
             return dt;
         }
 
+        //Xóa 1 danh mục sản phẩm
         public void DeleteCategories(Categories cate)
         {
             LoaiSP loaiSP = new LoaiSP();
@@ -250,6 +302,7 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
+        //Cập nhật thông tin 1 danh mục sản phẩm
         public void UpdateCategories(Categories cate)
         {
             db = new QLBanHangDataContext();
@@ -260,13 +313,14 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
+        //Thêm 1 sản phẩm
         public void InsertProducts(Product prod)
         {
             SanPham sanPham = new SanPham();
             sanPham.MaSP = prod.MaSP;
             sanPham.TenSP = prod.TenSP;
             sanPham.DonVi = prod.DonVi;
-            sanPham.DonGia = decimal.Parse(prod.DonGia);
+            sanPham.DonGia = prod.DonGia;
             sanPham.MaLoaiSP = prod.MaLoaiSP;
             sanPham.MaGiamGia = prod.MaGiamGia;
 
@@ -276,31 +330,64 @@ namespace MBSApp.DAO
             db.SubmitChanges();
         }
 
+        //Xóa 1 sản phẩm
+        public void DeleteProducts(Product prod)
+        {
 
-        //public void InsertProducts(ProductView pv)
-        //{
-        //    try
-        //    {
-        //        cd.Connect().Open();
+            //SanPham sanPham = new SanPham();
+            //sanPham.MaSP = prod.MaSP;
+            //sanPham.TenSP = prod.TenSP;
+            //sanPham.DonVi = prod.DonVi;
+            //sanPham.DonGia = prod.DonGia;
+            //sanPham.MaLoaiSP = prod.MaLoaiSP;
+            //sanPham.MaGiamGia = prod.MaGiamGia;
 
-        //        string query = string.Format("INSERT INTO SanPham(MaSP, TenSP, DonVi, DonGia, MaLoaiSP) VALUES(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}')", pv.MaSP, pv.TenSP, pv.DonVi, pv.DonGia, pv.TenLoaiSP);
+            //db = new QLBanHangDataContext();
+            //db.SanPhams.Attach(sanPham);
+            //db.SanPhams.DeleteOnSubmit(sanPham);
 
-        //        SqlCommand cmd = new SqlCommand(query, cd.Connect());
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //    catch (Exception e)
-        //    {
+            //db.SubmitChanges();
 
-        //    }
+            db = new QLBanHangDataContext();
 
-        //    finally
-        //    {
-        //        cd.Connect().Close();
-        //    }
+            // Tải lại sản phẩm từ cơ sở dữ liệu
+            SanPham sanPham = db.SanPhams.FirstOrDefault(p => p.MaSP == prod.MaSP);
 
+            // Nếu sản phẩm tồn tại, thực hiện xóa
+            if (sanPham != null)
+            {
+                db.SanPhams.DeleteOnSubmit(sanPham);
+                db.SubmitChanges();
+            }
+        }
 
-        //}
+        //Cập nhật thông tin 1 sản phẩm
+        public void UpdateProduct(Product prod)
+        {
+            db = new QLBanHangDataContext();
+            var update = db.SanPhams.SingleOrDefault(id => id.MaSP == prod.MaSP);
+            update.MaSP = prod.MaSP;
+            update.TenSP = prod.TenSP;
+            update.DonVi = prod.DonVi;
+            update.DonGia = prod.DonGia;
+            update.MaLoaiSP = prod.MaLoaiSP;
+            update.MaGiamGia = prod.MaGiamGia;
 
+            db.SubmitChanges();
+        }
+
+        //Tìm kiếm sản phẩm
+        public DataTable SearchProducts(string kw)
+        {
+            SqlDataAdapter da;
+            DataTable dt = new DataTable();
+            string query = "Select * From SanPham Where TenSP like N'" + kw + "%' ";
+            da = new SqlDataAdapter(query, cd.Connect());
+            da.Fill(dt);
+            return dt;
+        }
+
+        //Lấy sản phẩm bằng id
         public SanPham GetProductByID(ReceiptDetail rd)
         {
             db = new QLBanHangDataContext();
@@ -322,19 +409,21 @@ namespace MBSApp.DAO
 
         }
 
+        //Lấy nhân viên bằng id
         public NhanVien GetEmployeeByID(Employee e)
         {
             db = new QLBanHangDataContext();
             return db.NhanViens.FirstOrDefault(nv => nv.MaNV == e.MaNV);
         }
 
+        //Lấy khác hàng bằng id
         public KhachHang GetCustomerByID(Customer c)
         {
             db = new QLBanHangDataContext();
             return db.KhachHangs.FirstOrDefault(kh => kh.MaKH == c.MaKH);
         }
 
-
+        //Lấy giảm giá của sản phẩm
         public string GetDiscountByProduct(string cmbMaSP)
         {
             // Lấy mã sản phẩm từ ComboBox
@@ -353,19 +442,36 @@ namespace MBSApp.DAO
                     return txtKQ;
                 }
             }
-            return "Ngộ ha";
+            return "Không có giảm giá!";
+        }
+
+        //Thêm 1 hóa đơn
+        public void InsertReceipt(string idRec, string idCust, string idEmpl, DateTime dateSale)
+        {
+            string query = string.Format("INSERT INTO HoaDon(MaHD, MaKH, MaNV, NgayLapHD) VALUES(N'{0}', N'{1}', N'{2}', '{3}')", idRec, idCust, idEmpl, dateSale);
+
+            using (SqlConnection connection = cd.Connect())
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+        //Thêm 1 sản phẩm vào chi tiết hóa đơn
+        public void InsertReceiptDetail(string idRec, string idPro, string quantity, string uPrice, string totalPrice)
+        {
+            string query = string.Format("INSERT INTO ChiTietHD(MaHD, MaSP, SoLuong, DonGia, ThanhTien) VALUES(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}')", idRec, idPro, quantity, uPrice, totalPrice);
+
+            using (SqlConnection connection = cd.Connect())
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
         }
         
-
-        public DataTable InsertProductToReceipt(Receipt r, ReceiptDetail rd, Discount d, ProductView pv)
-        {
-            SqlDataAdapter da;
-            DataTable dt = new DataTable();
-            string query = string.Format("INSERT INTO ChiTietHD(MaHD, MaSP, SoLuong, DonGia, ThanhTien) VALUES(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}')", r.MaHoaDon, pv.TenSP, rd.SoLuong, pv.DonGia, float.Parse(pv.DonGia) * rd.SoLuong);
-            da = new SqlDataAdapter(query, cd.Connect());
-            da.Fill(dt);
-            return dt;
-        }
-
     }
 }
