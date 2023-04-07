@@ -95,7 +95,7 @@ namespace MBSApp
                 lbTenHang.Text = sp.TenSP;
                 lbDonVi.Text = sp.DonVi;
                 lbGiamGia.Text = ctrl_B.GetDistByProd(cboMaHang.Text);
-                lbDonGia.Text = sp.DonGia.ToString();
+                lbDonGia.Text = sp.DonGia;
             }
         }
 
@@ -121,27 +121,60 @@ namespace MBSApp
         {
             try
             {
-                int rowIndex = dgvHoaDon.CurrentCell.RowIndex;
-                if (dgvHoaDon.Rows[rowIndex].Cells[0].Value.ToString() == String.Empty || dgvHoaDon.Rows[rowIndex].Cells[0].Value == null)
+                bool isNull = DatagridviewCheck();
+                //int sl = dgvHoaDon.RowCount;
+                //MessageBox.Show("Không có gì để xóa!" + isNull + sl);
+                if (isNull == true)
                 {
-                    MessageBox.Show("Không có gì để xóa!");
+                    MessageBox.Show("Chưa có sản phẩm nào để xóa");
                 }
                 else
                 {
-                    dgvHoaDon.Rows.RemoveAt(rowIndex);
+                    int rowIndex = dgvHoaDon.CurrentCell.RowIndex;
+                    if (dgvHoaDon.CurrentCell.Value == null)
+                    {
+                        MessageBox.Show("Không có gì để xóa!");
+                    }
+                    //if (dgvHoaDon.Rows[rowIndex].Cells[0].Value.ToString() == String.Empty || dgvHoaDon.Rows[rowIndex].Cells[0].Value == null)
+                    //{
+                    //    MessageBox.Show("Không có gì để xóa!");
+                    //}
+                    else
+                    {
+                        dgvHoaDon.Rows.RemoveAt(rowIndex);
+                    }
+                    double thanhTien = 0;
+                    int columnIndex = dgvHoaDon.Columns["TongTien"].Index;
+                    for (int i = 0; i < dgvHoaDon.RowCount - 1; i++)
+                    {
+                        thanhTien += double.Parse(dgvHoaDon.Rows[i].Cells[columnIndex].Value.ToString());
+                    }
+                    lbTongTien.Text = thanhTien.ToString("N0") + " đ"; 
                 }
-                double thanhTien = 0;
-                int columnIndex = dgvHoaDon.Columns["TongTien"].Index;
-                for (int i = 0; i < dgvHoaDon.RowCount - 1; i++)
-                {
-                    thanhTien += double.Parse(dgvHoaDon.Rows[i].Cells[columnIndex].Value.ToString());
-                }
-                lbTongTien.Text = thanhTien.ToString("N0") + " đ";
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public bool DatagridviewCheck()
+        {
+            bool isNull = false;
+            for (int i = 0; i <= dgvHoaDon.RowCount - 1; i++)
+            {
+                for (int j = 0; j < dgvHoaDon.ColumnCount; j++)
+                {
+                    //if (dgvHoaDon.Rows[i].Cells[j].Value == null || dgvHoaDon.Rows[i].Cells[j].Value == DBNull.Value)
+                    if(dgvHoaDon.RowCount == 1)
+                    {
+                        isNull = true;
+                    }
+                }
+                if (isNull)
+                    break;
+            }    
+            return isNull;
         }
 
         //Code của Thái
@@ -222,34 +255,43 @@ namespace MBSApp
         {
             try
             {
-                Receipt r = new Receipt(txtMaHoaDon.Text, cboMaKH.Text, lbMaNV.Text, DateTime.Parse(dtpNgayBan.Text));
-                ProductView pv = new ProductView(cboMaHang.Text, lbTenHang.Text, "Void", lbDonVi.Text, lbDonGia.Text);
-                ReceiptDetail rd = new ReceiptDetail(cboMaHang.Text, lbTenHang.Text, "Void", Int16.Parse(txtSoLuong.Text), lbDonVi.Text, lbGiamGia.Text, (Int16.Parse(txtSoLuong.Text) * decimal.Parse(lbDonGia.Text) - decimal.Parse(lbGiamGia.Text)).ToString());
-                Discount d = new Discount("Void", lbGiamGia.Text);
+                //Receipt r = new Receipt(txtMaHoaDon.Text, cboMaKH.Text, lbMaNV.Text, DateTime.Parse(dtpNgayBan.Text));
+                //ProductView pv = new ProductView(cboMaHang.Text, lbTenHang.Text, "Void", lbDonVi.Text, lbDonGia.Text);
+                //ReceiptDetail rd = new ReceiptDetail(cboMaHang.Text, lbTenHang.Text, "Void", Int16.Parse(txtSoLuong.Text), lbDonVi.Text, lbGiamGia.Text, (Int16.Parse(txtSoLuong.Text) * decimal.Parse(lbDonGia.Text) - decimal.Parse(lbGiamGia.Text)).ToString());
+                //Discount d = new Discount("Void", lbGiamGia.Text);
 
-                if(txtMaHoaDon.Text == String.Empty)
+                if (txtMaHoaDon.Text == String.Empty)
                 {
-                    MessageBox.Show("Vui lòng nhập mã hóa đơn");
+                    MessageBox.Show("Vui lòng nhập mã hóa đơn!");
                     return;
                 }
 
-                if (txtSoLuong.Text == "")
+                if (cboMaHang.Text == String.Empty)
                 {
-                    MessageBox.Show("Vui lòng nhập số lượng");
+                    MessageBox.Show("Vui chọn mặt hàng!");
                     return;
                 }
 
-                if (cboMaKH.Text == String.Empty)
+                if (txtSoLuong.Text == String.Empty)
                 {
-                    MessageBox.Show("Vui lòng nhập mã hóa đơn");
+                    MessageBox.Show("Vui lòng nhập số lượng!");
                     return;
-                }    
+                }
 
-                rd.SoLuong = Int16.Parse(txtSoLuong.Text);
+
+                //rd.SoLuong = Int16.Parse(txtSoLuong.Text);
+
+                string maSP = cboMaHang.Text;
+                string tenSP = lbTenHang.Text;
+                string soLuong = txtSoLuong.Text;
+                string donGia = lbDonGia.Text;
+                string donVi = lbDonVi.Text;
+                string giamGia = lbGiamGia.Text;
+                string tien = (Int16.Parse(txtSoLuong.Text) * decimal.Parse(lbDonGia.Text) - decimal.Parse(lbGiamGia.Text)).ToString();
 
                 if (dgvHoaDon.Rows.Count == 1)
                 {
-                    dgvHoaDon.Rows.Add(pv.MaSP, pv.TenSP, rd.SoLuong, pv.DonGia, pv.DonVi, d.GiamGia, rd.ThanhTien);
+                    dgvHoaDon.Rows.Add(maSP, tenSP, soLuong, donGia, donVi, giamGia, tien);
                     count = 1;
                     MessageBox.Show("Thêm sản phẩm mới thành công!");
                 }
@@ -257,9 +299,9 @@ namespace MBSApp
                 {
                     for (int i = 0; i < dgvHoaDon.RowCount - 1; i++)
                     {
-                        if (dgvHoaDon.Rows[i].Cells[0].Value.ToString() == pv.MaSP)
+                        if (dgvHoaDon.Rows[i].Cells[0].Value.ToString() == maSP)
                         {
-                            MessageBox.Show("Đã tồn tại");
+                            MessageBox.Show("Sản phẩm đã tồn tại");
                             count = 1;
                             break;
                         }
@@ -271,7 +313,7 @@ namespace MBSApp
 
                     if (count == dgvHoaDon.RowCount)
                     {
-                        dgvHoaDon.Rows.Add(pv.MaSP, pv.TenSP, rd.SoLuong, pv.DonGia, pv.DonVi, d.GiamGia, rd.ThanhTien);
+                        dgvHoaDon.Rows.Add(maSP, tenSP, soLuong, donGia, donVi, giamGia, tien);
                         count = 1;
                         MessageBox.Show("Sản phẩm mới đã được thêm vào!");
                     }
@@ -283,11 +325,11 @@ namespace MBSApp
                 {
                     thanhTien += double.Parse(dgvHoaDon.Rows[i].Cells[columnIndex].Value.ToString());
                 }
-                lbTongTien.Text = thanhTien.ToString();
+                lbTongTien.Text = thanhTien.ToString("N0") +" đ";
             }
-            catch (FormatException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Vui lòng nhập số lượng");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -303,25 +345,41 @@ namespace MBSApp
 
         private void dgvHoaDon_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex = dgvHoaDon.CurrentCell.RowIndex;
-
-            string soLuong = dgvHoaDon.Rows[rowIndex].Cells[2].Value.ToString();
-            string donGia = dgvHoaDon.Rows[rowIndex].Cells[3].Value.ToString();
-            string giamGia = dgvHoaDon.Rows[rowIndex].Cells[5].Value.ToString();
-            //MessageBox.Show(soLuong + donGia + giamGia);
-
-            string tongGiamGia = (Int32.Parse(soLuong) * double.Parse(giamGia)).ToString();
-            string tongTien = (Int32.Parse(soLuong) * double.Parse(donGia) - Int32.Parse(soLuong) * double.Parse(giamGia)).ToString();
-            dgvHoaDon.Rows[rowIndex].Cells[5].Value = tongGiamGia;
-            dgvHoaDon.Rows[rowIndex].Cells[6].Value = tongTien;
-
-            double thanhTien = 0;
-            int columnIndex = dgvHoaDon.Columns["TongTien"].Index;
-            for (int i = 0; i < dgvHoaDon.RowCount - 1; i++)
+            try
             {
-                thanhTien += double.Parse(dgvHoaDon.Rows[i].Cells[columnIndex].Value.ToString());
+                if (dgvHoaDon.CurrentCell.Value == null)
+                {
+                    MessageBox.Show("Bạn chưa nhập số lượng!");
+                    dgvHoaDon.CurrentCell.Value = 1;
+
+                }
+                else
+                {
+                    int rowIndex = dgvHoaDon.CurrentCell.RowIndex;
+
+                    string soLuong = dgvHoaDon.Rows[rowIndex].Cells[2].Value.ToString();
+                    string donGia = dgvHoaDon.Rows[rowIndex].Cells[3].Value.ToString();
+                    string giamGia = dgvHoaDon.Rows[rowIndex].Cells[5].Value.ToString();
+                    //MessageBox.Show(soLuong + donGia + giamGia);
+
+                    string tongGiamGia = (Int32.Parse(soLuong) * double.Parse(giamGia)).ToString();
+                    string tongTien = (Int32.Parse(soLuong) * double.Parse(donGia) - Int32.Parse(soLuong) * double.Parse(giamGia)).ToString();
+                    dgvHoaDon.Rows[rowIndex].Cells[5].Value = tongGiamGia;
+                    dgvHoaDon.Rows[rowIndex].Cells[6].Value = tongTien;
+
+                    double thanhTien = 0;
+                    int columnIndex = dgvHoaDon.Columns["TongTien"].Index;
+                    for (int i = 0; i < dgvHoaDon.RowCount - 1; i++)
+                    {
+                        thanhTien += double.Parse(dgvHoaDon.Rows[i].Cells[columnIndex].Value.ToString());
+                    }
+                    lbTongTien.Text = thanhTien.ToString("N0") + " đ";
+                }
             }
-            lbTongTien.Text = thanhTien.ToString("C");
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnXoaHD_Click(object sender, EventArgs e)

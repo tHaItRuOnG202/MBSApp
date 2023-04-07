@@ -43,7 +43,6 @@ namespace MBSApp
             this.btnXoaSP = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDonVi = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
@@ -73,6 +72,7 @@ namespace MBSApp
             // 
             // cboMaLoaiSP
             // 
+            this.cboMaLoaiSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMaLoaiSP.FormattingEnabled = true;
             this.cboMaLoaiSP.Location = new System.Drawing.Point(162, 160);
             this.cboMaLoaiSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -209,10 +209,6 @@ namespace MBSApp
             this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -257,6 +253,7 @@ namespace MBSApp
             // 
             // cbMaGiamGia
             // 
+            this.cbMaGiamGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMaGiamGia.FormattingEnabled = true;
             this.cbMaGiamGia.Location = new System.Drawing.Point(618, 163);
             this.cbMaGiamGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -276,6 +273,7 @@ namespace MBSApp
             this.GiamGia});
             this.dgvDMSanPham.Location = new System.Drawing.Point(35, 251);
             this.dgvDMSanPham.Name = "dgvDMSanPham";
+            this.dgvDMSanPham.ReadOnly = true;
             this.dgvDMSanPham.RowHeadersWidth = 51;
             this.dgvDMSanPham.RowTemplate.Height = 24;
             this.dgvDMSanPham.Size = new System.Drawing.Size(1103, 271);
@@ -381,7 +379,6 @@ namespace MBSApp
         private System.Windows.Forms.Button btnXoaSP;
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDonVi;
         private System.Windows.Forms.Button btnThem;

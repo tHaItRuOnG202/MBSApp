@@ -83,6 +83,7 @@ namespace MBSApp
             this.dgvDMNhanVien.Location = new System.Drawing.Point(44, 314);
             this.dgvDMNhanVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDMNhanVien.Name = "dgvDMNhanVien";
+            this.dgvDMNhanVien.ReadOnly = true;
             this.dgvDMNhanVien.RowHeadersWidth = 62;
             this.dgvDMNhanVien.RowTemplate.Height = 28;
             this.dgvDMNhanVien.Size = new System.Drawing.Size(915, 214);
@@ -95,6 +96,7 @@ namespace MBSApp
             this.MaNV.HeaderText = "Mã nhân viên";
             this.MaNV.MinimumWidth = 8;
             this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
             this.MaNV.Width = 125;
             // 
             // HoNV
@@ -103,6 +105,7 @@ namespace MBSApp
             this.HoNV.HeaderText = "Họ nhân viên";
             this.HoNV.MinimumWidth = 6;
             this.HoNV.Name = "HoNV";
+            this.HoNV.ReadOnly = true;
             this.HoNV.Width = 125;
             // 
             // TenNV
@@ -111,6 +114,7 @@ namespace MBSApp
             this.TenNV.HeaderText = "Tên nhân viên";
             this.TenNV.MinimumWidth = 8;
             this.TenNV.Name = "TenNV";
+            this.TenNV.ReadOnly = true;
             this.TenNV.Width = 110;
             // 
             // NgaySinh
@@ -119,6 +123,7 @@ namespace MBSApp
             this.NgaySinh.HeaderText = "Ngày sinh";
             this.NgaySinh.MinimumWidth = 8;
             this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
             this.NgaySinh.Width = 115;
             // 
             // DiaChi
@@ -127,6 +132,7 @@ namespace MBSApp
             this.DiaChi.HeaderText = "Địa chỉ";
             this.DiaChi.MinimumWidth = 8;
             this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
             this.DiaChi.Width = 135;
             // 
             // DienThoai
@@ -135,6 +141,7 @@ namespace MBSApp
             this.DienThoai.HeaderText = "Điện thoại";
             this.DienThoai.MinimumWidth = 8;
             this.DienThoai.Name = "DienThoai";
+            this.DienThoai.ReadOnly = true;
             this.DienThoai.Width = 115;
             // 
             // btnTimKiem

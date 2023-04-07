@@ -66,6 +66,8 @@ namespace MBSApp
             cbMaGiamGia.DataSource = ctrl_D.ShowDiscount();
             cbMaGiamGia.DisplayMember = "GiamGia";
             cbMaGiamGia.ValueMember = "MaGiamGia";
+            cbMaGiamGia.SelectedIndex = 0;
+            cboMaLoaiSP.SelectedIndex = 0;
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -84,7 +86,7 @@ namespace MBSApp
         {
             //try
             //{
-                ProductView prv = new ProductView(txtMaSP.Text, txtTenSP.Text, cboMaLoaiSP.Text, txtDonVi.Text, txtDonGiaBan.Text);
+                //ProductView prv = new ProductView(txtMaSP.Text, txtTenSP.Text, cboMaLoaiSP.Text, txtDonVi.Text, txtDonGiaBan.Text);
                 Product prd = new Product(txtMaSP.Text, txtTenSP.Text, txtDonVi.Text, txtDonGiaBan.Text, cboMaLoaiSP.SelectedValue.ToString(), cbMaGiamGia.SelectedValue.ToString());
 
                 if (txtMaSP.Text == String.Empty)

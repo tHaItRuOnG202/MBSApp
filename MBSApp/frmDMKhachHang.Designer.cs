@@ -190,6 +190,7 @@ namespace MBSApp
             this.dgvDMKhachHang.Location = new System.Drawing.Point(56, 351);
             this.dgvDMKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDMKhachHang.Name = "dgvDMKhachHang";
+            this.dgvDMKhachHang.ReadOnly = true;
             this.dgvDMKhachHang.RowHeadersWidth = 62;
             this.dgvDMKhachHang.RowTemplate.Height = 28;
             this.dgvDMKhachHang.Size = new System.Drawing.Size(895, 279);
@@ -202,6 +203,7 @@ namespace MBSApp
             this.MaKH.HeaderText = "Mã khách hàng";
             this.MaKH.MinimumWidth = 8;
             this.MaKH.Name = "MaKH";
+            this.MaKH.ReadOnly = true;
             this.MaKH.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.MaKH.Width = 140;
             // 
@@ -211,6 +213,7 @@ namespace MBSApp
             this.TenKH.HeaderText = "Tên khách hàng";
             this.TenKH.MinimumWidth = 8;
             this.TenKH.Name = "TenKH";
+            this.TenKH.ReadOnly = true;
             this.TenKH.Width = 180;
             // 
             // NgaySinh
@@ -219,6 +222,7 @@ namespace MBSApp
             this.NgaySinh.HeaderText = "Ngày sinh";
             this.NgaySinh.MinimumWidth = 6;
             this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
             this.NgaySinh.Width = 115;
             // 
             // DiaChi
@@ -227,6 +231,7 @@ namespace MBSApp
             this.DiaChi.HeaderText = "Địa chỉ";
             this.DiaChi.MinimumWidth = 8;
             this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
             this.DiaChi.Width = 125;
             // 
             // DienThoai
@@ -235,6 +240,7 @@ namespace MBSApp
             this.DienThoai.HeaderText = "Điện thoại";
             this.DienThoai.MinimumWidth = 8;
             this.DienThoai.Name = "DienThoai";
+            this.DienThoai.ReadOnly = true;
             this.DienThoai.Width = 115;
             // 
             // Email
@@ -243,6 +249,7 @@ namespace MBSApp
             this.Email.HeaderText = "Email";
             this.Email.MinimumWidth = 6;
             this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
             this.Email.Width = 140;
             // 
             // lbDMKhachHang

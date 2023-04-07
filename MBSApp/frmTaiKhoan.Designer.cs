@@ -103,6 +103,7 @@ namespace MBSApp
             this.txtMatKhau.Location = new System.Drawing.Point(234, 265);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '●';
             this.txtMatKhau.Size = new System.Drawing.Size(249, 30);
             this.txtMatKhau.TabIndex = 2;
             // 
